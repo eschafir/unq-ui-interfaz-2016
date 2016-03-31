@@ -7,8 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>xtend-quickstart</name>
 	<properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <xtend.version>2.7.3</xtend.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtend.version>2.7.3</xtend.version>
 	</properties>
 	<build>
 		<plugins>
@@ -46,6 +46,16 @@
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
 			<version>${xtend.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.uqbar-project</groupId>
+			<artifactId>arena-jface</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>unq-ciu</groupId>
+			<artifactId>gatoEncerrado</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
