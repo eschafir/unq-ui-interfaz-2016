@@ -9,8 +9,8 @@ import unq_ciu.gatoEncerrado.Habitacion
 
 class WindowsAgregarHabitacion extends MainWindow<Juego> {
 	
-	new(Juego model) {
-		super(model)
+	new() {
+		super(new Juego)
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -24,6 +24,10 @@ class WindowsAgregarHabitacion extends MainWindow<Juego> {
 			//En agregarHabitacion va a ir el parámetro de las opciones de habitaciones que el jugador elija
 			onClick [ | this.modelObject.laberinto.agregarHabitacion(null) ]
 		]
+	}
+	
+	def static main(String[] args) {
+		new WindowsAgregarHabitacion().startApplication
 	}
 	
 }
