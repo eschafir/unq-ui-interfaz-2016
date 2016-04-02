@@ -6,6 +6,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import unq_ciu.gatoEncerrado.Habitacion
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.layout.HorizontalLayout
 
 class WindowsAgregarHabitacion extends MainWindow<Juego> {
 	
@@ -18,6 +20,16 @@ class WindowsAgregarHabitacion extends MainWindow<Juego> {
 		
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
+		
+		new Label(mainPanel).text = "Selecciona una habitación"
+		
+		new Button(mainPanel) => [ caption = "Cancelar"
+			
+			//Hay que ver que hace el cancelar
+			onClick [ | this.modelObject.laberinto.agregarHabitacion(null) ]
+		]
+		
+		//mainPanel.layout = new HorizontalLayout
 		
 		new Button(mainPanel) => [ caption = "Agregar"
 			
