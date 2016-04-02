@@ -9,7 +9,7 @@ import unq_ciu.gatoEncerrado.Habitacion
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 
-class WindowsAgregarHabitacion extends MainWindow<Juego> {
+class WindowsAgregarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 	
 	new() {
 		super(new Juego)
@@ -23,23 +23,26 @@ class WindowsAgregarHabitacion extends MainWindow<Juego> {
 		
 		new Label(mainPanel).text = "Selecciona una habitación"
 		
-		new Button(mainPanel) => [ caption = "Cancelar"
-			
-			//Hay que ver que hace el cancelar
-			onClick [ | this.modelObject.laberinto.agregarHabitacion(null) ]
-		]
+		val accionesPanel = new Panel(mainPanel)
+		accionesPanel.layout = new HorizontalLayout
 		
-		//mainPanel.layout = new HorizontalLayout
+		val cancelar = new Button(accionesPanel)
+		cancelar.caption = "Cancelar"
 		
-		new Button(mainPanel) => [ caption = "Agregar"
-			
-			//En agregarHabitacion va a ir el parámetro de las opciones de habitaciones que el jugador elija
-			onClick [ | this.modelObject.laberinto.agregarHabitacion(null) ]
-		]
+		//¿Cuando se clickea Cancelar que se hace?
+		cancelar.onClick(null)
+
+		
+		val agregar = new Button(accionesPanel)
+		agregar.caption = "Agregar"
+		
+		//Se le tiene que pasar por parámetro la habitación que se elija
+		agregar.onClick(null)
+		
 	}
 	
 	def static main(String[] args) {
-		new WindowsAgregarHabitacion().startApplication
+		new WindowsAgregarAccionDeIrAOtraHabitacion().startApplication
 	}
 	
 }
