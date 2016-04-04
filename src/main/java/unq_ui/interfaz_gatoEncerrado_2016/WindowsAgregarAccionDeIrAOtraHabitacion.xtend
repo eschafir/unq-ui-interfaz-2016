@@ -1,7 +1,6 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
 import unq_ciu.gatoEncerrado.Habitacion
-import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -9,11 +8,14 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
+import unq_ciu.gatoEncerrado.Laberinto
+import org.uqbar.arena.windows.Window
+import org.uqbar.arena.Application
 
-class WindowsAgregarAccionDeIrAOtraHabitacion extends MainWindow<AgregarAccionDeIrAOtraHabitacionAppModel> {
+class WindowsAgregarAccionDeIrAOtraHabitacion extends Window<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
-	new() {
-		super(new AgregarAccionDeIrAOtraHabitacionAppModel)
+	new(Application app, Laberinto laberinto) {
+		super(app, new AgregarAccionDeIrAOtraHabitacionAppModel(laberinto))
 	}
 
 	override createContents(Panel mainPanel) {
@@ -51,10 +53,6 @@ class WindowsAgregarAccionDeIrAOtraHabitacion extends MainWindow<AgregarAccionDe
 		//Se le tiene que pasar por parámetro la habitación que se elija
 		agregar.onClick(null)
 
-	}
-
-	def static main(String[] args) {
-		new WindowsAgregarAccionDeIrAOtraHabitacion().startApplication
 	}
 
 }
