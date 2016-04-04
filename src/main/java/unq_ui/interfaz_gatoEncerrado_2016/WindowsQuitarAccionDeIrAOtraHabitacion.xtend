@@ -7,41 +7,36 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.layout.ColumnLayout
 
 class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
-	
-	Panel accionesPanel
-	
+
 	new() {
 		super(new Juego)
 	}
-	
+
 	override createContents(Panel mainPanel) {
-		
+
 		this.title = "Quitar acción de ir a otra habitación"
-		
+
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
-		
+
 		new Label(mainPanel).text = "Selecciona una habitación"
-		
+
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
-		
+
 		val cancelar = new Button(accionesPanel)
 		cancelar.caption = "Cancelar"
-		
+
 		val quitar = new Button(accionesPanel)
 		quitar.caption = "Quitar"
-		
+
 		//Se le tiene que pasar por parámetro la habitación que se elija
 		quitar.onClick(null)
 	}
-	
-	
+
 	def static main(String[] args) {
 		new WindowsQuitarAccionDeIrAOtraHabitacion().startApplication
-		}
 	}
-	
+}
