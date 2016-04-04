@@ -1,6 +1,5 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
-import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.Habitacion
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
@@ -9,11 +8,12 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
 
-class WindowsAgregarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
+class WindowsAgregarAccionDeIrAOtraHabitacion extends MainWindow<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
 	new() {
-		super(new Juego)
+		super(new AgregarAccionDeIrAOtraHabitacionAppModel)
 	}
 
 	override createContents(Panel mainPanel) {
