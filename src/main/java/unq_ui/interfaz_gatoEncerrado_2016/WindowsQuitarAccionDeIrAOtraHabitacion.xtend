@@ -7,6 +7,8 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Selector
+import unq_ciu.gatoEncerrado.Habitacion
 
 class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 
@@ -22,7 +24,14 @@ class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 		mainPanel.layout = new VerticalLayout
 
 		new Label(mainPanel).text = "Selecciona una habitación"
-
+		
+		new Selector<Habitacion>(mainPanel) => [
+			allowNull(false)
+			value.bindToProperty("habitacionSeleccionada")
+			val propiedadModelos = bindItemsToProperty("laberinto.habitaciones")
+			propiedadModelos.adaptWith(typeof(Habitacion), "nombre")
+		]
+		
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
 

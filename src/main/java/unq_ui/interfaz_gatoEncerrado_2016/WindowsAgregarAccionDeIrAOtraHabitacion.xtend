@@ -21,10 +21,11 @@ class WindowsAgregarAccionDeIrAOtraHabitacion extends Window<AgregarAccionDeIrAO
 	override createContents(Panel mainPanel) {
 		this.title = "Agregar acción de ir a otra habitación"
 		this.minHeight = 200
-
+		
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
-
+		mainPanel.width = 3000
+		
 		new Label(mainPanel).text = "Selecciona una habitación"
 
 		new Selector<Habitacion>(mainPanel) => [
@@ -52,7 +53,7 @@ class WindowsAgregarAccionDeIrAOtraHabitacion extends Window<AgregarAccionDeIrAO
 
 		//Se le tiene que pasar por parámetro la habitación que se elija
 		agregar.onClick(null)
-
 	}
+	
 
 }
