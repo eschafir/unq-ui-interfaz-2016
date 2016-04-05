@@ -3,18 +3,24 @@ package unq_ui.interfaz_gatoEncerrado_2016
 import org.uqbar.arena.Application
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
 
 class GatoEncerradoApplication extends Application {
 
 	override protected createMainWindow() {
-		val hab1 = new Habitacion("Living", false, false)
-		val hab2 = new Habitacion("Cocina", false, false)
+
+		val living = new Habitacion("Living", false, false)
+		val cocina = new Habitacion("Cocina", false, false)
+		val patio = new Habitacion("Patio", false, false)
 
 		val laberinto = new Laberinto("Casa")
-		laberinto.agregarHabitacion(hab1)
-		laberinto.agregarHabitacion(hab2)
 
-		new WindowsAgregarAccionDeIrAOtraHabitacion(this, laberinto)
+		laberinto.agregarHabitacion(living)
+		laberinto.agregarHabitacion(cocina)
+		laberinto.agregarHabitacion(patio)
+
+		val model = new AgregarAccionAppModel
+		new WindowAgregarAccion(this, model)
 
 	}
 

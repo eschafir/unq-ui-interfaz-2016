@@ -8,24 +8,23 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
-import unq_ciu.gatoEncerrado.Laberinto
-import org.uqbar.arena.windows.Window
-import org.uqbar.arena.Application
+import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
 
-class WindowsAgregarAccionDeIrAOtraHabitacion extends Window<AgregarAccionDeIrAOtraHabitacionAppModel> {
+class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
-	new(Application app, Laberinto laberinto) {
-		super(app, new AgregarAccionDeIrAOtraHabitacionAppModel(laberinto))
+	new(WindowOwner owner, Habitacion hab) {
+		super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(hab))
 	}
 
-	override createContents(Panel mainPanel) {
+	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Agregar acción de ir a otra habitación"
 		this.minHeight = 200
-		
+
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
-		mainPanel.width = 3000
-		
+		mainPanel.width = 30000
+
 		new Label(mainPanel).text = "Selecciona una habitación"
 
 		new Selector<Habitacion>(mainPanel) => [
@@ -38,22 +37,18 @@ class WindowsAgregarAccionDeIrAOtraHabitacion extends Window<AgregarAccionDeIrAO
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
 
-		val cancelar = new Button(accionesPanel)
-		cancelar.caption = "Cancelar"
-		cancelar.height = 30
-		cancelar.width = 70
+		new Button(mainPanel) => [
+			caption = "Cancelar"
+			onClick [|this.close]
+		]
 
-		//¿Cuando se clickea Cancelar que se hace?
-		cancelar.onClick(null)
-
-		val agregar = new Button(accionesPanel)
-		agregar.caption = "Agregar"
-		agregar.height = 30
-		agregar.width = 70
-
-		//Se le tiene que pasar por parámetro la habitación que se elija
-		agregar.onClick(null)
+		new Button(mainPanel) => [
+			caption = "Agregar"
+			onClick [|
+				//this.modelObject.agregarAccion
+				this.close
+			]
+		]
 	}
-	
 
 }

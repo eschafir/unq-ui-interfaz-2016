@@ -1,47 +1,65 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
-import org.uqbar.arena.Application
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.windows.Window
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
-import unq_ciu.gatoEncerrado.Laberinto
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
-class WindowAgregarAccionD extends Window<AgregarAccionAppModel> {
+class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
-	new(Application app, Laberinto laberinto) {
-		super(app, new AgregarAccionAppModel(laberinto))
+	new(WindowOwner parent, AgregarAccionAppModel model) {
+		super(parent, model)
 	}
 
-	override createContents(Panel mainPanel) {
-		this.title = "Agregar acción"
+	override protected addActions(Panel actionsPanel) {
+		//No utilizamos este template.
+	}
+
+	override protected createFormPanel(Panel mainPanel) {
+		this.title = "Agregar acciones a la habitacion"
 		this.minHeight = 200
-		
+
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
-		
+
 		new Label(mainPanel).text = "Selecciona una acción a agregar"
 
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
 
-		val otrahabitacion = new Button(accionesPanel)
-		otrahabitacion.caption = "Agregar acción de ir a otra habitación"
-		otrahabitacion.height = 30
-		otrahabitacion.width = 70
-		
-		val agarrar = new Button(accionesPanel)
-		agarrar.caption = "Agregar acción de Agarrar un elemento"
-		agarrar.height = 30
-		agarrar.width = 70
-		
-		val usar = new Button(accionesPanel)
-		usar.caption = "Agregar acción de Usar un elemento"
-		usar.height = 30
-		usar.width = 70
+		new Button(accionesPanel) => [
+			caption = "Ir a otra habitación"
+			height = 30
+			width = 150
+			onClick [|
+				new WindowsAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.habitacionActual).open
+			]
+		]
+
+		new Button(accionesPanel) => [
+			caption = "Agarrar un elemento"
+			height = 30
+			width = 150
+			onClick [|
+				new WindowAgregarAccionDeAgarrarElemento(this, this.modelObject.habitacionActual).open
+			]
+		]
+
+		new Button(accionesPanel) => [
+			caption = "Usar un elemento"
+			height = 30
+			width = 150
+		]
+
+		new Button(mainPanel) => [
+			caption = "Cancelar"
+			onClick [|this.close]
+		]
 	}
+
 }

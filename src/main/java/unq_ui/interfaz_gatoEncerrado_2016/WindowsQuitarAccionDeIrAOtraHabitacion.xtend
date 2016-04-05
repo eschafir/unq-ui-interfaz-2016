@@ -24,14 +24,14 @@ class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 		mainPanel.layout = new VerticalLayout
 
 		new Label(mainPanel).text = "Selecciona una habitación"
-		
+
 		new Selector<Habitacion>(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("habitacionSeleccionada")
 			val propiedadModelos = bindItemsToProperty("laberinto.habitaciones")
 			propiedadModelos.adaptWith(typeof(Habitacion), "nombre")
 		]
-		
+
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
 
