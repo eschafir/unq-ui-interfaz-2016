@@ -9,7 +9,7 @@ import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeAgarrarElementoAppModel
 import unq_ciu.gatoEncerrado.Habitacion
-import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.widgets.TextBox
 
 class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrarElementoAppModel> {
 
@@ -27,13 +27,9 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 
 		new Label(mainPanel).text = "Escriba el elemento que aparecerá en la habitación"
 
-		//new TextBox(mainPanel)
-		new Selector(mainPanel) => [
-			allowNull(false)
-			items
-			bindItemsToProperty("itemsPosibles")
-			value
-			bindValueToProperty("itemSeleccionado")
+		new TextBox(mainPanel) => [
+			value 
+			bindValueToProperty("item.nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)

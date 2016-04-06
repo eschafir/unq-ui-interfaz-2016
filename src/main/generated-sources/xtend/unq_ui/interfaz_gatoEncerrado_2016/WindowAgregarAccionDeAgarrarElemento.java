@@ -7,7 +7,7 @@ import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.Selector;
+import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
@@ -29,17 +29,14 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
     mainPanel.setWidth(3000);
     Label _label = new Label(mainPanel);
     _label.setText("Escriba el elemento que aparecerá en la habitación");
-    Selector<Object> _selector = new Selector<Object>(mainPanel);
-    final Procedure1<Selector<Object>> _function = new Procedure1<Selector<Object>>() {
-      public void apply(final Selector<Object> it) {
-        it.allowNull(false);
-        it.items();
-        it.bindItemsToProperty("itemsPosibles");
+    TextBox _textBox = new TextBox(mainPanel);
+    final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
+      public void apply(final TextBox it) {
         it.<ControlBuilder>value();
-        it.<Object, ControlBuilder>bindValueToProperty("itemSeleccionado");
+        it.<Object, ControlBuilder>bindValueToProperty("item.nombre");
       }
     };
-    ObjectExtensions.<Selector<Object>>operator_doubleArrow(_selector, _function);
+    ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
     final Panel accionesPanel = new Panel(mainPanel);
     HorizontalLayout _horizontalLayout = new HorizontalLayout();
     accionesPanel.setLayout(_horizontalLayout);
