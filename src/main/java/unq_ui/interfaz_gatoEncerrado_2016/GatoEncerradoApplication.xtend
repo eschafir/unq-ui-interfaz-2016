@@ -9,7 +9,7 @@ class GatoEncerradoApplication extends Application {
 
 	override protected createMainWindow() {
 
-		val living = new Habitacion("Living", false, false)
+		val living = new Habitacion("Living", true, false)
 		val cocina = new Habitacion("Cocina", false, false)
 		val patio = new Habitacion("Patio", false, false)
 
@@ -19,7 +19,7 @@ class GatoEncerradoApplication extends Application {
 		laberinto.agregarHabitacion(cocina)
 		laberinto.agregarHabitacion(patio)
 
-		val model = new AgregarAccionAppModel
+		val model = new AgregarAccionAppModel(living)
 		new WindowAgregarAccion(this, model)
 
 	}

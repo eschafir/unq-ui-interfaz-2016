@@ -8,6 +8,8 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
 import unq_ciu.gatoEncerrado.Habitacion
+import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.layout.HorizontalLayout
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
 
@@ -17,24 +19,35 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 
 	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Agregar acción de Usar un elemento"
-		this.minHeight = 200
-		mainPanel.width = 3000
 
-		new Label(mainPanel).text = "Seleccione el elemento que puede ser usado"
+		new Label(mainPanel) => [
+			text = "Seleccione el elemento que puede ser usado"
+			height = 30
+		]
+
+		new Selector(mainPanel) => [
+			allowNull(false)
+			/**
+			 * TODO
+			 */
+		]
 
 		new Label(mainPanel).text = "Cree la acción a realizar"
 
 		new Button(mainPanel) => [
 			caption = "Agregar acción"
 			height = 30
-			width = 150
+			width = 40
 			onClick [|
-				val model = new AgregarAccionAppModel
+				val model = new AgregarAccionAppModel(this.modelObject.habitacion)
 				new WindowAgregarAccion(this, model).open
 			]
 		]
 
-		new Button(mainPanel) => [
+		val accionPanel = new Panel(mainPanel)
+		accionPanel.layout = new HorizontalLayout
+
+		new Button(accionPanel) => [
 			caption = "Cancelar"
 			height = 30
 			width = 150
@@ -43,12 +56,14 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			]
 		]
 
-		new Button(mainPanel) => [
+		new Button(accionPanel) => [
 			caption = "Agregar"
 			height = 30
 			width = 150
 			onClick [|
-	
+				/**
+				 * TODO
+				 */	
 			]
 		]
 	}

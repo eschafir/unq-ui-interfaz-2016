@@ -28,8 +28,7 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 		new Label(mainPanel).text = "Escriba el elemento que aparecerá en la habitación"
 
 		new TextBox(mainPanel) => [
-			value
-			bindValueToProperty("item.nombre")
+			value.bindToProperty("item.nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)

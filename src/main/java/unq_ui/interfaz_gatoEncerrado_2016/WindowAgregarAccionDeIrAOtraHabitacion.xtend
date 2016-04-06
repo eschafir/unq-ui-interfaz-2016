@@ -30,8 +30,8 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 		new Selector<Habitacion>(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("habitacionSeleccionada")
-			val propiedadModelos = bindItemsToProperty("laberinto.habitaciones")
-			propiedadModelos.adaptWith(typeof(Habitacion), "nombre")
+			val listaHabitaciones = bindItemsToProperty("laberinto.habitaciones")
+			listaHabitaciones.adaptWith(typeof(Habitacion), "nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)
@@ -45,7 +45,7 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 		new Button(mainPanel) => [
 			caption = "Agregar"
 			onClick [|
-				//this.modelObject.agregarAccion
+				this.modelObject.agregarAccion
 				this.close
 			]
 		]
