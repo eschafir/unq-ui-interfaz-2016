@@ -28,7 +28,7 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 		new Label(mainPanel).text = "Escriba el elemento que aparecerá en la habitación"
 
 		new TextBox(mainPanel) => [
-			value 
+			value
 			bindValueToProperty("item.nombre")
 		]
 
@@ -47,7 +47,8 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 			height = 30
 			width = 150
 			onClick [|
-				
+				this.modelObject.agregarAcccionAgarrar
+				this.close
 			]
 		]
 	}

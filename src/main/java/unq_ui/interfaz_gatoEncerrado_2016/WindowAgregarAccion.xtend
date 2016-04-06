@@ -37,7 +37,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowsAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.habitacionActual).open
+				new WindowAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.habitacionActual).open
 			]
 		]
 
@@ -54,6 +54,9 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			caption = "Usar un elemento"
 			height = 30
 			width = 150
+			onClick [|
+				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.habitacionActual).open
+			]
 		]
 
 		new Button(mainPanel) => [

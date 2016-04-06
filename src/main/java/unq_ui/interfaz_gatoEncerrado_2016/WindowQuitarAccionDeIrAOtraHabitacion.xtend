@@ -10,7 +10,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
 import unq_ciu.gatoEncerrado.Habitacion
 
-class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
+class WindowQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 
 	new() {
 		super(new Juego)
@@ -46,6 +46,6 @@ class WindowsQuitarAccionDeIrAOtraHabitacion extends MainWindow<Juego> {
 	}
 
 	def static main(String[] args) {
-		new WindowsQuitarAccionDeIrAOtraHabitacion().startApplication
+		new WindowQuitarAccionDeIrAOtraHabitacion().startApplication
 	}
 }

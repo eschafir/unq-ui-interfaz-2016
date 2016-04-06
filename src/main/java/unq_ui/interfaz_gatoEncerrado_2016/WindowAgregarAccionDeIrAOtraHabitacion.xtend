@@ -11,7 +11,7 @@ import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
-class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
+class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
 	new(WindowOwner owner, Habitacion hab) {
 		super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(hab))
