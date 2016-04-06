@@ -12,14 +12,14 @@ public class GatoEncerradoApplication extends Application {
   protected Window<?> createMainWindow() {
     WindowAgregarAccion _xblockexpression = null;
     {
-      final Habitacion living = new Habitacion("Living", false, false);
+      final Habitacion living = new Habitacion("Living", true, false);
       final Habitacion cocina = new Habitacion("Cocina", false, false);
       final Habitacion patio = new Habitacion("Patio", false, false);
       final Laberinto laberinto = new Laberinto("Casa");
       laberinto.agregarHabitacion(living);
       laberinto.agregarHabitacion(cocina);
       laberinto.agregarHabitacion(patio);
-      final AgregarAccionAppModel model = new AgregarAccionAppModel();
+      final AgregarAccionAppModel model = new AgregarAccionAppModel(living);
       _xblockexpression = new WindowAgregarAccion(this, model);
     }
     return _xblockexpression;

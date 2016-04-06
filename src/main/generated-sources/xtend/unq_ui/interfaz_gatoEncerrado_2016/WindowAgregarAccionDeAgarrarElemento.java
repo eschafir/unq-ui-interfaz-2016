@@ -2,9 +2,11 @@ package unq_ui.interfaz_gatoEncerrado_2016;
 
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.uqbar.arena.bindings.ObservableValue;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
+import org.uqbar.arena.widgets.Control;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
@@ -32,8 +34,8 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
     TextBox _textBox = new TextBox(mainPanel);
     final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
       public void apply(final TextBox it) {
-        it.<ControlBuilder>value();
-        it.<Object, ControlBuilder>bindValueToProperty("item.nombre");
+        ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
+        _value.<Object>bindToProperty("item.nombre");
       }
     };
     ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
@@ -63,6 +65,9 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionDeAgarrarElementoAppModel _modelObject = WindowAgregarAccionDeAgarrarElemento.this.getModelObject();
+            _modelObject.agregarAcccionAgarrar();
+            WindowAgregarAccionDeAgarrarElemento.this.close();
           }
         };
         it.onClick(_function);

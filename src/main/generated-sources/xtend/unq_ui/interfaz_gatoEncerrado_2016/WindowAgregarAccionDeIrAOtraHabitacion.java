@@ -20,8 +20,8 @@ import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 
 @SuppressWarnings("all")
-public class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
-  public WindowsAgregarAccionDeIrAOtraHabitacion(final WindowOwner owner, final Habitacion hab) {
+public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
+  public WindowAgregarAccionDeIrAOtraHabitacion(final WindowOwner owner, final Habitacion hab) {
     super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(hab));
   }
   
@@ -39,8 +39,8 @@ public class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccio
         it.allowNull(false);
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
         _value.<Object>bindToProperty("habitacionSeleccionada");
-        final Binding<?, Selector<Habitacion>, ListBuilder<Habitacion>> propiedadModelos = it.bindItemsToProperty("laberinto.habitaciones");
-        propiedadModelos.adaptWith(Habitacion.class, "nombre");
+        final Binding<?, Selector<Habitacion>, ListBuilder<Habitacion>> listaHabitaciones = it.bindItemsToProperty("laberinto.habitaciones");
+        listaHabitaciones.adaptWith(Habitacion.class, "nombre");
       }
     };
     ObjectExtensions.<Selector<Habitacion>>operator_doubleArrow(_selector, _function);
@@ -53,7 +53,7 @@ public class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccio
         it.setCaption("Cancelar");
         final Action _function = new Action() {
           public void execute() {
-            WindowsAgregarAccionDeIrAOtraHabitacion.this.close();
+            WindowAgregarAccionDeIrAOtraHabitacion.this.close();
           }
         };
         it.onClick(_function);
@@ -66,7 +66,9 @@ public class WindowsAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccio
         it.setCaption("Agregar");
         final Action _function = new Action() {
           public void execute() {
-            WindowsAgregarAccionDeIrAOtraHabitacion.this.close();
+            AgregarAccionDeIrAOtraHabitacionAppModel _modelObject = WindowAgregarAccionDeIrAOtraHabitacion.this.getModelObject();
+            _modelObject.agregarAccion();
+            WindowAgregarAccionDeIrAOtraHabitacion.this.close();
           }
         };
         it.onClick(_function);

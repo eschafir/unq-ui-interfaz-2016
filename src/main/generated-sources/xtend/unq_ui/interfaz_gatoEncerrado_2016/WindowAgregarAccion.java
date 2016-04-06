@@ -13,7 +13,8 @@ import org.uqbar.lacar.ui.model.Action;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeAgarrarElemento;
-import unq_ui.interfaz_gatoEncerrado_2016.WindowsAgregarAccionDeIrAOtraHabitacion;
+import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeIrAOtraHabitacion;
+import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeUsarElemento;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
@@ -45,8 +46,8 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
           public void execute() {
             AgregarAccionAppModel _modelObject = WindowAgregarAccion.this.getModelObject();
             Habitacion _habitacionActual = _modelObject.getHabitacionActual();
-            WindowsAgregarAccionDeIrAOtraHabitacion _windowsAgregarAccionDeIrAOtraHabitacion = new WindowsAgregarAccionDeIrAOtraHabitacion(WindowAgregarAccion.this, _habitacionActual);
-            _windowsAgregarAccionDeIrAOtraHabitacion.open();
+            WindowAgregarAccionDeIrAOtraHabitacion _windowAgregarAccionDeIrAOtraHabitacion = new WindowAgregarAccionDeIrAOtraHabitacion(WindowAgregarAccion.this, _habitacionActual);
+            _windowAgregarAccionDeIrAOtraHabitacion.open();
           }
         };
         it.onClick(_function);
@@ -77,6 +78,15 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
         it.setCaption("Usar un elemento");
         it.setHeight(30);
         it.setWidth(150);
+        final Action _function = new Action() {
+          public void execute() {
+            AgregarAccionAppModel _modelObject = WindowAgregarAccion.this.getModelObject();
+            Habitacion _habitacionActual = _modelObject.getHabitacionActual();
+            WindowAgregarAccionDeUsarElemento _windowAgregarAccionDeUsarElemento = new WindowAgregarAccionDeUsarElemento(WindowAgregarAccion.this, _habitacionActual);
+            _windowAgregarAccionDeUsarElemento.open();
+          }
+        };
+        it.onClick(_function);
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button_2, _function_2);
