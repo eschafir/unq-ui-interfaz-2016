@@ -22,12 +22,11 @@ class GatoEncerradoApplication extends Application {
 		laberinto.agregarHabitacion(living)
 		laberinto.agregarHabitacion(cocina)
 		laberinto.agregarHabitacion(patio)
-		
+
 		juego.agregarLaberinto(laberinto)
 
 		//val model = new AgregarAccionAppModel(living)
 		//new WindowAgregarAccion(this, model)
-		
 		val model = new GatoEncerradoAppModel(juego)
 		new GatoEncerradoWindow(this, model)
 
