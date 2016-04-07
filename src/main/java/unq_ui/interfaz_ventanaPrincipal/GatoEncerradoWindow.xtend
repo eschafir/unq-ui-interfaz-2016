@@ -62,9 +62,6 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		new Label(header).text = "Habitaciones de:"
 		new Label(header).value.bindToProperty("laberintoSeleccionado.nombre")
 
-	/**
- 		* TODO
- 		*/
 	}
 
 }

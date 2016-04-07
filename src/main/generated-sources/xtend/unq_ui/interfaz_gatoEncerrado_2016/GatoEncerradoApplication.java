@@ -5,6 +5,7 @@ import org.uqbar.arena.windows.Window;
 import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Juego;
+import unq_ciu.gatoEncerrado.Jugador;
 import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 
@@ -16,8 +17,9 @@ public class GatoEncerradoApplication extends Application {
       final Habitacion living = new Habitacion("Living", true, false);
       final Habitacion cocina = new Habitacion("Cocina", false, false);
       final Habitacion patio = new Habitacion("Patio", false, false);
-      final Laberinto laberinto = new Laberinto("Casa");
-      final Juego juego = new Juego();
+      final Laberinto laberinto = new Laberinto("Casa Abandonada");
+      Jugador _jugador = new Jugador("Esteban", living);
+      final Juego juego = new Juego(_jugador);
       laberinto.agregarHabitacion(living);
       laberinto.agregarHabitacion(cocina);
       laberinto.agregarHabitacion(patio);
