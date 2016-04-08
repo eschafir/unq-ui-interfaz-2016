@@ -17,6 +17,7 @@ import unq_ui.interfaz_gatoEncerrado_2016.NuevaHabitacionWindow
 import org.uqbar.arena.widgets.CheckBox
 import unq_ciu.gatoEncerrado.Accion
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion
+import org.uqbar.arena.widgets.TextBox
 
 class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
@@ -98,8 +99,17 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		/*
 		 * ENCABEZADO DE HABITACIONES
 		 */
-		new Label(header).text = "Habitaciones de:"
-		new Label(header).value.bindToProperty("laberintoSeleccionado.nombre")
+		val panelHeader = new Panel(owner)
+		panelHeader.layout = new ColumnLayout(2)
+
+		new Label(panelHeader).text = "Habitaciones de:"
+		new Label(panelHeader).value.bindToProperty("laberintoSeleccionado.nombre")
+
+		new Label(panelHeader).text = "Laberinto seleccionado:"
+		new TextBox(panelHeader) => [
+			value.bindToProperty("laberintoSeleccionado.nombre")
+			width = 100
+		]
 
 		/*
 		 * LISTA DE HABITACIONES
@@ -135,8 +145,17 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		/*
 		 * ENCABEZADO DE HABITACION SELECCIONADA
 		 */
-		new Label(header).text = "Habitacion seleccionada:"
-		new Label(header).value.bindToProperty("habitacionSeleccionada.nombre")
+		val panelHeader = new Panel(owner)
+		panelHeader.layout = new ColumnLayout(2)
+
+		new Label(panelHeader).text = "Habitacion seleccionada:"
+		new Label(panelHeader).value.bindToProperty("habitacionSeleccionada.nombre")
+
+		new Label(panelHeader).text = "Nombre:"
+		new TextBox(panelHeader) => [
+			value.bindToProperty("habitacionSeleccionada.nombre")
+			width = 100
+		]
 
 		/*
 		 * CHECKBOX INICIAL
@@ -175,7 +194,9 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 		new Button(botonera) => [
 			caption = "Agregar Accion"
-			onClick [|new WindowAgregarAccion(this, this.modelObject.laberintoSeleccionado, this.modelObject.habitacionSeleccionada).open]
+			onClick [|
+				new WindowAgregarAccion(this, this.modelObject.laberintoSeleccionado,
+					this.modelObject.habitacionSeleccionada).open]
 		]
 
 		new Button(botonera) => [

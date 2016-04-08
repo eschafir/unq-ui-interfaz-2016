@@ -14,6 +14,7 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.List;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
+import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
@@ -122,13 +123,27 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       final Panel header = new Panel(owner);
       HorizontalLayout _horizontalLayout = new HorizontalLayout();
       header.setLayout(_horizontalLayout);
-      Label _label = new Label(header);
+      final Panel panelHeader = new Panel(owner);
+      ColumnLayout _columnLayout = new ColumnLayout(2);
+      panelHeader.setLayout(_columnLayout);
+      Label _label = new Label(panelHeader);
       _label.setText("Habitaciones de:");
-      Label _label_1 = new Label(header);
+      Label _label_1 = new Label(panelHeader);
       ObservableValue<Control, ControlBuilder> _value = _label_1.<ControlBuilder>value();
       _value.<Object>bindToProperty("laberintoSeleccionado.nombre");
+      Label _label_2 = new Label(panelHeader);
+      _label_2.setText("Laberinto seleccionado:");
+      TextBox _textBox = new TextBox(panelHeader);
+      final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
+        public void apply(final TextBox it) {
+          ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
+          _value.<Object>bindToProperty("laberintoSeleccionado.nombre");
+          it.setWidth(100);
+        }
+      };
+      ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
       List<Habitacion> _list = new List<Habitacion>(owner);
-      final Procedure1<List<Habitacion>> _function = new Procedure1<List<Habitacion>>() {
+      final Procedure1<List<Habitacion>> _function_1 = new Procedure1<List<Habitacion>>() {
         public void apply(final List<Habitacion> it) {
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           _value.<Object>bindToProperty("habitacionSeleccionada");
@@ -140,12 +155,12 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.setHeight(150);
         }
       };
-      ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function);
+      ObjectExtensions.<List<Habitacion>>operator_doubleArrow(_list, _function_1);
       final Panel botonera = new Panel(owner);
       HorizontalLayout _horizontalLayout_1 = new HorizontalLayout();
       botonera.setLayout(_horizontalLayout_1);
       Button _button = new Button(botonera);
-      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+      final Procedure1<Button> _function_2 = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Nueva Habitacion");
           final Action _function = new Action() {
@@ -159,9 +174,9 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.onClick(_function);
         }
       };
-      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_1);
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
       Button _button_1 = new Button(botonera);
-      final Procedure1<Button> _function_2 = new Procedure1<Button>() {
+      final Procedure1<Button> _function_3 = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Eliminar Habitacion");
           final Action _function = new Action() {
@@ -173,7 +188,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.onClick(_function);
         }
       };
-      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_2);
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
     }
     return _xblockexpression;
   }
@@ -184,37 +199,51 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       final Panel header = new Panel(owner);
       HorizontalLayout _horizontalLayout = new HorizontalLayout();
       header.setLayout(_horizontalLayout);
-      Label _label = new Label(header);
+      final Panel panelHeader = new Panel(owner);
+      ColumnLayout _columnLayout = new ColumnLayout(2);
+      panelHeader.setLayout(_columnLayout);
+      Label _label = new Label(panelHeader);
       _label.setText("Habitacion seleccionada:");
-      Label _label_1 = new Label(header);
+      Label _label_1 = new Label(panelHeader);
       ObservableValue<Control, ControlBuilder> _value = _label_1.<ControlBuilder>value();
       _value.<Object>bindToProperty("habitacionSeleccionada.nombre");
+      Label _label_2 = new Label(panelHeader);
+      _label_2.setText("Nombre:");
+      TextBox _textBox = new TextBox(panelHeader);
+      final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
+        public void apply(final TextBox it) {
+          ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
+          _value.<Object>bindToProperty("habitacionSeleccionada.nombre");
+          it.setWidth(100);
+        }
+      };
+      ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
       final Panel inicialCheck = new Panel(owner);
       HorizontalLayout _horizontalLayout_1 = new HorizontalLayout();
       inicialCheck.setLayout(_horizontalLayout_1);
       CheckBox _checkBox = new CheckBox(inicialCheck);
       ObservableValue<Control, ControlBuilder> _value_1 = _checkBox.<ControlBuilder>value();
       _value_1.<Object>bindToProperty("habitacionSeleccionada.esInicial");
-      Label _label_2 = new Label(inicialCheck);
-      _label_2.setText("Es Inicial?");
+      Label _label_3 = new Label(inicialCheck);
+      _label_3.setText("Es Inicial?");
       final Panel finalCheck = new Panel(owner);
       HorizontalLayout _horizontalLayout_2 = new HorizontalLayout();
       finalCheck.setLayout(_horizontalLayout_2);
       CheckBox _checkBox_1 = new CheckBox(finalCheck);
       ObservableValue<Control, ControlBuilder> _value_2 = _checkBox_1.<ControlBuilder>value();
       _value_2.<Object>bindToProperty("habitacionSeleccionada.esFinal");
-      Label _label_3 = new Label(finalCheck);
-      final Procedure1<Label> _function = new Procedure1<Label>() {
+      Label _label_4 = new Label(finalCheck);
+      final Procedure1<Label> _function_1 = new Procedure1<Label>() {
         public void apply(final Label it) {
           it.setText("Es Final?");
           it.setHeight(30);
         }
       };
-      ObjectExtensions.<Label>operator_doubleArrow(_label_3, _function);
-      Label _label_4 = new Label(owner);
-      _label_4.setText("Acciones");
+      ObjectExtensions.<Label>operator_doubleArrow(_label_4, _function_1);
+      Label _label_5 = new Label(owner);
+      _label_5.setText("Acciones");
       List<Accion> _list = new List<Accion>(owner);
-      final Procedure1<List<Accion>> _function_1 = new Procedure1<List<Accion>>() {
+      final Procedure1<List<Accion>> _function_2 = new Procedure1<List<Accion>>() {
         public void apply(final List<Accion> it) {
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           _value.<Object>bindToProperty("accionSeleccionada");
@@ -223,12 +252,12 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.setHeight(150);
         }
       };
-      ObjectExtensions.<List<Accion>>operator_doubleArrow(_list, _function_1);
+      ObjectExtensions.<List<Accion>>operator_doubleArrow(_list, _function_2);
       final Panel botonera = new Panel(owner);
       HorizontalLayout _horizontalLayout_3 = new HorizontalLayout();
       botonera.setLayout(_horizontalLayout_3);
       Button _button = new Button(botonera);
-      final Procedure1<Button> _function_2 = new Procedure1<Button>() {
+      final Procedure1<Button> _function_3 = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Agregar Accion");
           final Action _function = new Action() {
@@ -244,9 +273,9 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.onClick(_function);
         }
       };
-      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_3);
       Button _button_1 = new Button(botonera);
-      final Procedure1<Button> _function_3 = new Procedure1<Button>() {
+      final Procedure1<Button> _function_4 = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Quitar Accion");
           final Action _function = new Action() {
@@ -258,7 +287,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           it.onClick(_function);
         }
       };
-      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_4);
     }
     return _xblockexpression;
   }
