@@ -10,7 +10,6 @@ import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
-import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
@@ -50,8 +49,7 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
           public void execute() {
             AgregarAccionDeUsarElementoAppModel _modelObject = WindowAgregarAccionDeUsarElemento.this.getModelObject();
             Habitacion _habitacion = _modelObject.getHabitacion();
-            final AgregarAccionAppModel model = new AgregarAccionAppModel(_habitacion);
-            WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(WindowAgregarAccionDeUsarElemento.this, model);
+            WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(WindowAgregarAccionDeUsarElemento.this, _habitacion);
             _windowAgregarAccion.open();
           }
         };

@@ -10,6 +10,7 @@ import org.uqbar.arena.widgets.Selector
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.bindings.PropertyAdapter
 
 class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
@@ -30,8 +31,8 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 		new Selector<Habitacion>(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("habitacionSeleccionada")
-			val listaHabitaciones = bindItemsToProperty("laberinto.habitaciones")
-			listaHabitaciones.adaptWith(typeof(Habitacion), "nombre")
+			(items.bindToProperty("laberinto.habitaciones")).adapter = new PropertyAdapter(Habitacion,
+				"nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)

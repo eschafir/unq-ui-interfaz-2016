@@ -8,11 +8,12 @@ import org.uqbar.arena.widgets.Panel
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import unq_ciu.gatoEncerrado.Habitacion
 
 class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
-	new(WindowOwner parent, AgregarAccionAppModel model) {
-		super(parent, model)
+	new(WindowOwner parent, Habitacion model) {
+		super(parent, new AgregarAccionAppModel(model))
 	}
 
 	override protected addActions(Panel actionsPanel) {

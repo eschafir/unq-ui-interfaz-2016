@@ -2,7 +2,9 @@ package unq_ui.interfaz_gatoEncerrado_2016;
 
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.uqbar.arena.bindings.ObservableItems;
 import org.uqbar.arena.bindings.ObservableValue;
+import org.uqbar.arena.bindings.PropertyAdapter;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
@@ -39,8 +41,11 @@ public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccion
         it.allowNull(false);
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
         _value.<Object>bindToProperty("habitacionSeleccionada");
-        final Binding<?, Selector<Habitacion>, ListBuilder<Habitacion>> listaHabitaciones = it.bindItemsToProperty("laberinto.habitaciones");
-        listaHabitaciones.adaptWith(Habitacion.class, "nombre");
+        ObservableItems<Selector<Habitacion>, Habitacion, ListBuilder<Habitacion>> _items = it.items();
+        Binding<Object, Selector<Habitacion>, ListBuilder<Habitacion>> _bindToProperty = _items.<Object>bindToProperty("laberinto.habitaciones");
+        PropertyAdapter _propertyAdapter = new PropertyAdapter(Habitacion.class, 
+          "nombre");
+        _bindToProperty.setAdapter(_propertyAdapter);
       }
     };
     ObjectExtensions.<Selector<Habitacion>>operator_doubleArrow(_selector, _function);

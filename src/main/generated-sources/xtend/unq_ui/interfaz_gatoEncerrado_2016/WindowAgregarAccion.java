@@ -18,8 +18,8 @@ import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeUsarElemento;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
-  public WindowAgregarAccion(final WindowOwner parent, final AgregarAccionAppModel model) {
-    super(parent, model);
+  public WindowAgregarAccion(final WindowOwner parent, final Habitacion model) {
+    super(parent, new AgregarAccionAppModel(model));
   }
   
   protected void addActions(final Panel actionsPanel) {

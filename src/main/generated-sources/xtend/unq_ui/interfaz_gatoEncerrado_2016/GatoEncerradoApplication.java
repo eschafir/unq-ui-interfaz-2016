@@ -7,6 +7,7 @@ import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Jugador;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ciu.gatoEncerrado.acciones.Mover;
 import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 
 @SuppressWarnings("all")
@@ -17,7 +18,9 @@ public class GatoEncerradoApplication extends Application {
       final Habitacion living = new Habitacion("Living", true, false);
       final Habitacion cocina = new Habitacion("Cocina", false, false);
       final Habitacion patio = new Habitacion("Patio", false, false);
+      final Mover mover = new Mover(cocina);
       final Laberinto laberinto = new Laberinto("Casa Abandonada");
+      living.agregarAccion(mover);
       Jugador _jugador = new Jugador("Esteban", living);
       final Juego juego = new Juego(_jugador);
       laberinto.agregarHabitacion(living);

@@ -7,6 +7,7 @@ import unq_ciu.gatoEncerrado.Juego
 import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel
 import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow
 import unq_ciu.gatoEncerrado.Jugador
+import unq_ciu.gatoEncerrado.acciones.Mover
 
 class GatoEncerradoApplication extends Application {
 
@@ -15,8 +16,11 @@ class GatoEncerradoApplication extends Application {
 		val living = new Habitacion("Living", true, false)
 		val cocina = new Habitacion("Cocina", false, false)
 		val patio = new Habitacion("Patio", false, false)
+		
+		val mover = new Mover(cocina)
 
 		val laberinto = new Laberinto("Casa Abandonada")
+		living.agregarAccion(mover)
 
 		val juego = new Juego(new Jugador("Esteban", living))
 		laberinto.agregarHabitacion(living)

@@ -6,7 +6,6 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
-import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
 import unq_ciu.gatoEncerrado.Habitacion
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.layout.HorizontalLayout
@@ -27,7 +26,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 
 		new Selector(mainPanel) => [
 			allowNull(false)
-			/**
+		/**
 			 * TODO
 			 */
 		]
@@ -39,8 +38,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			height = 30
 			width = 40
 			onClick [|
-				val model = new AgregarAccionAppModel(this.modelObject.habitacion)
-				new WindowAgregarAccion(this, model).open
+				new WindowAgregarAccion(this, this.modelObject.habitacion).open
 			]
 		]
 
