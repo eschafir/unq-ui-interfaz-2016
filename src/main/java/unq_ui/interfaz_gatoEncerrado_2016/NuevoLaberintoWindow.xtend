@@ -20,7 +20,11 @@ class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
 		title = "Nuevo Laberinto"
 		mainPanel.layout = new VerticalLayout
 
-		new Label(mainPanel).text = "Nombre:"
+		new Label(mainPanel) => [
+			text = "Ingrese el nombre del laberinto"
+			height = 30
+			fontSize = 10
+		]
 		new TextBox(mainPanel) => [
 			value.bindToProperty("laberinto.nombre")
 			width = 200

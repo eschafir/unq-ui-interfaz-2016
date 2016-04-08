@@ -18,6 +18,7 @@ import org.uqbar.arena.widgets.CheckBox
 import unq_ciu.gatoEncerrado.Accion
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion
 import org.uqbar.arena.widgets.TextBox
+import java.awt.Color
 
 class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
@@ -36,7 +37,17 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 	override createMainTemplate(Panel mainPanel) {
 
 		this.title = "Acá hay gato encerrado..."
-		new Label(mainPanel).text = "Acá hay gato encerrado..."
+
+		/**
+ 		* TITULO DE LA VENTANA
+ 		*/
+		new Label(mainPanel) => [
+			text = "Acá hay gato encerrado..."
+			fontSize = 20
+			//background = Color.BLACK
+			foreground = Color.GRAY
+		]
+
 		val panelPrincipal = new Panel(mainPanel)
 		panelPrincipal.layout = new ColumnLayout(3)
 
@@ -68,7 +79,11 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		/*
 		 * LISTA DE LABERINTOS
 		 */
-		new Label(owner).text = "Laberintos"
+		new Label(owner) => [
+			text = "Laberintos"
+			//height = 40
+			fontSize = 12
+		]
 		new List<Laberinto>(owner) => [
 			value.bindToProperty("laberintoSeleccionado")
 			(items.bindToProperty("juego.laberintos")).adapter = new PropertyAdapter(Laberinto, "nombre")
@@ -151,7 +166,10 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		new Label(panelHeader).text = "Habitacion seleccionada:"
 		new Label(panelHeader).value.bindToProperty("habitacionSeleccionada.nombre")
 
-		new Label(panelHeader).text = "Nombre:"
+		new Label(panelHeader) => [
+			text = "Nombre:"
+			width = 150
+		]
 		new TextBox(panelHeader) => [
 			value.bindToProperty("habitacionSeleccionada.nombre")
 			width = 100
@@ -173,7 +191,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		new CheckBox(finalCheck).value.bindToProperty("habitacionSeleccionada.esFinal")
 		new Label(finalCheck) => [
 			text = "Es Final?"
-			height = 30
+			height = 23
 		]
 
 		/*
@@ -183,7 +201,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		new List<Accion>(owner) => [
 			value.bindToProperty("accionSeleccionada")
 			items.bindToProperty("habitacionSeleccionada.acciones")
-			height = 150
+			height = 73
 		]
 
 		/*

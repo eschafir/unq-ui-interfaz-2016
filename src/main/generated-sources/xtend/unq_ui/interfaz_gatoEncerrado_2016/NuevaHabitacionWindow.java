@@ -13,51 +13,48 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
 import org.uqbar.lacar.ui.model.ControlBuilder;
-import unq_ciu.gatoEncerrado.AppModel.CrearLaberintoAppModel;
-import unq_ciu.gatoEncerrado.Juego;
+import unq_ciu.gatoEncerrado.AppModel.CrearHabitacionAppModel;
+import unq_ciu.gatoEncerrado.Laberinto;
 
 @SuppressWarnings("all")
-public class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
-  public NuevoLaberintoWindow(final WindowOwner owner, final Juego model) {
-    super(owner, new CrearLaberintoAppModel(model));
+public class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
+  public NuevaHabitacionWindow(final WindowOwner owner, final Laberinto model) {
+    super(owner, new CrearHabitacionAppModel(model));
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Nuevo Laberinto");
+    CrearHabitacionAppModel _modelObject = this.getModelObject();
+    Laberinto _laberinto = _modelObject.getLaberinto();
+    String _nombre = _laberinto.getNombre();
+    String _plus = (_nombre + ": agregar habitacion");
+    this.setTitle(_plus);
     VerticalLayout _verticalLayout = new VerticalLayout();
     mainPanel.setLayout(_verticalLayout);
     Label _label = new Label(mainPanel);
-    final Procedure1<Label> _function = new Procedure1<Label>() {
-      public void apply(final Label it) {
-        it.setText("Ingrese el nombre del laberinto");
-        it.setHeight(30);
-        it.setFontSize(10);
-      }
-    };
-    ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
+    _label.setText("Nombre:");
     TextBox _textBox = new TextBox(mainPanel);
-    final Procedure1<TextBox> _function_1 = new Procedure1<TextBox>() {
+    final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
       public void apply(final TextBox it) {
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-        _value.<Object>bindToProperty("laberinto.nombre");
+        _value.<Object>bindToProperty("habitacion.nombre");
         it.setWidth(200);
       }
     };
-    ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function_1);
+    ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
     Button _button = new Button(mainPanel);
-    final Procedure1<Button> _function_2 = new Procedure1<Button>() {
+    final Procedure1<Button> _function_1 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Aceptar");
         final Action _function = new Action() {
           public void execute() {
-            CrearLaberintoAppModel _modelObject = NuevoLaberintoWindow.this.getModelObject();
-            _modelObject.agregarLaberinto();
-            NuevoLaberintoWindow.this.close();
+            CrearHabitacionAppModel _modelObject = NuevaHabitacionWindow.this.getModelObject();
+            _modelObject.agregarHabitacion();
+            NuevaHabitacionWindow.this.close();
           }
         };
         it.onClick(_function);
       }
     };
-    ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
+    ObjectExtensions.<Button>operator_doubleArrow(_button, _function_1);
   }
 }
