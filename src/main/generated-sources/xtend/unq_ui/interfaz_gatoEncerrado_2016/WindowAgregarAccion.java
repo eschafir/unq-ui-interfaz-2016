@@ -12,21 +12,26 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeAgarrarElemento;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeIrAOtraHabitacion;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeUsarElemento;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
-  public WindowAgregarAccion(final WindowOwner parent, final Habitacion model) {
-    super(parent, new AgregarAccionAppModel(model));
+  public WindowAgregarAccion(final WindowOwner parent, final Laberinto lab, final Habitacion model) {
+    super(parent, new AgregarAccionAppModel(lab, model));
   }
   
   protected void addActions(final Panel actionsPanel) {
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Agregar acciones a la habitacion");
+    AgregarAccionAppModel _modelObject = this.getModelObject();
+    Habitacion _habitacionActual = _modelObject.getHabitacionActual();
+    String _nombre = _habitacionActual.getNombre();
+    String _plus = (_nombre + ": agregar accion");
+    this.setTitle(_plus);
     this.setMinHeight(200);
     VerticalLayout _verticalLayout = new VerticalLayout();
     mainPanel.setLayout(_verticalLayout);
@@ -45,8 +50,10 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionAppModel _modelObject = WindowAgregarAccion.this.getModelObject();
-            Habitacion _habitacionActual = _modelObject.getHabitacionActual();
-            WindowAgregarAccionDeIrAOtraHabitacion _windowAgregarAccionDeIrAOtraHabitacion = new WindowAgregarAccionDeIrAOtraHabitacion(WindowAgregarAccion.this, _habitacionActual);
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionAppModel _modelObject_1 = WindowAgregarAccion.this.getModelObject();
+            Habitacion _habitacionActual = _modelObject_1.getHabitacionActual();
+            WindowAgregarAccionDeIrAOtraHabitacion _windowAgregarAccionDeIrAOtraHabitacion = new WindowAgregarAccionDeIrAOtraHabitacion(WindowAgregarAccion.this, _laberinto, _habitacionActual);
             _windowAgregarAccionDeIrAOtraHabitacion.open();
           }
         };
@@ -81,8 +88,10 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionAppModel _modelObject = WindowAgregarAccion.this.getModelObject();
-            Habitacion _habitacionActual = _modelObject.getHabitacionActual();
-            WindowAgregarAccionDeUsarElemento _windowAgregarAccionDeUsarElemento = new WindowAgregarAccionDeUsarElemento(WindowAgregarAccion.this, _habitacionActual);
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionAppModel _modelObject_1 = WindowAgregarAccion.this.getModelObject();
+            Habitacion _habitacionActual = _modelObject_1.getHabitacionActual();
+            WindowAgregarAccionDeUsarElemento _windowAgregarAccionDeUsarElemento = new WindowAgregarAccionDeUsarElemento(WindowAgregarAccion.this, _laberinto, _habitacionActual);
             _windowAgregarAccionDeUsarElemento.open();
           }
         };

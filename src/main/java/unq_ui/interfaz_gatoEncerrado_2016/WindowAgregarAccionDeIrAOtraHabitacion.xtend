@@ -11,11 +11,12 @@ import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.bindings.PropertyAdapter
+import unq_ciu.gatoEncerrado.Laberinto
 
 class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
 
-	new(WindowOwner owner, Habitacion hab) {
-		super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(hab))
+	new(WindowOwner owner, Laberinto lab,  Habitacion hab) {
+		super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(lab,hab))
 	}
 
 	override protected createFormPanel(Panel mainPanel) {

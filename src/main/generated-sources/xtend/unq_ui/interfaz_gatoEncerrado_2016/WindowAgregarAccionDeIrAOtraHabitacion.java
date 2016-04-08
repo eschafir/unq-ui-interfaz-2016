@@ -20,11 +20,12 @@ import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeIrAOtraHabitacionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Laberinto;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOtraHabitacionAppModel> {
-  public WindowAgregarAccionDeIrAOtraHabitacion(final WindowOwner owner, final Habitacion hab) {
-    super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(hab));
+  public WindowAgregarAccionDeIrAOtraHabitacion(final WindowOwner owner, final Laberinto lab, final Habitacion hab) {
+    super(owner, new AgregarAccionDeIrAOtraHabitacionAppModel(lab, hab));
   }
   
   protected void createFormPanel(final Panel mainPanel) {

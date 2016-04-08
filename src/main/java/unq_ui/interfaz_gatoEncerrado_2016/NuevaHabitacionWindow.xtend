@@ -17,7 +17,7 @@ class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		title = "Nueva Habitacion"
+		title = this.modelObject.laberinto.nombre + ": agregar habitacion"
 		mainPanel.layout = new VerticalLayout
 
 		new Label(mainPanel).text = "Nombre:"

@@ -9,11 +9,12 @@ import org.uqbar.arena.widgets.Button
 import unq_ciu.gatoEncerrado.Habitacion
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.layout.HorizontalLayout
+import unq_ciu.gatoEncerrado.Laberinto
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
 
-	new(WindowOwner owner, Habitacion hab) {
-		super(owner, new AgregarAccionDeUsarElementoAppModel(hab))
+	new(WindowOwner owner, Laberinto lab, Habitacion hab) {
+		super(owner, new AgregarAccionDeUsarElementoAppModel(lab,hab))
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
@@ -38,7 +39,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			height = 30
 			width = 40
 			onClick [|
-				new WindowAgregarAccion(this, this.modelObject.habitacion).open
+				new WindowAgregarAccion(this, this.modelObject.laberinto, this.modelObject.habitacion).open
 			]
 		]
 

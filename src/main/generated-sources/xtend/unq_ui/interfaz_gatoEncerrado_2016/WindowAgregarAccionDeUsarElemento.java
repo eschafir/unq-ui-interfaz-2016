@@ -12,12 +12,13 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
-  public WindowAgregarAccionDeUsarElemento(final WindowOwner owner, final Habitacion hab) {
-    super(owner, new AgregarAccionDeUsarElementoAppModel(hab));
+  public WindowAgregarAccionDeUsarElemento(final WindowOwner owner, final Laberinto lab, final Habitacion hab) {
+    super(owner, new AgregarAccionDeUsarElementoAppModel(lab, hab));
   }
   
   protected void createFormPanel(final Panel mainPanel) {
@@ -48,8 +49,10 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionDeUsarElementoAppModel _modelObject = WindowAgregarAccionDeUsarElemento.this.getModelObject();
-            Habitacion _habitacion = _modelObject.getHabitacion();
-            WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(WindowAgregarAccionDeUsarElemento.this, _habitacion);
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionDeUsarElementoAppModel _modelObject_1 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
+            Habitacion _habitacion = _modelObject_1.getHabitacion();
+            WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion);
             _windowAgregarAccion.open();
           }
         };

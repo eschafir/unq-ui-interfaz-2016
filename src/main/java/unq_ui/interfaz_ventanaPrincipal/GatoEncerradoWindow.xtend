@@ -54,7 +54,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		this.crearEdicionDeLaberintoSeleccionado(panelCentral)
 
 		/**
-		 * LAZO DERECHO DE LA PANTALLA PRINCIPAL
+		 * LADO DERECHO DE LA PANTALLA PRINCIPAL
 		 */
 		val panelDerecho = new Panel(panelPrincipal)
 		panelDerecho.width = 300
@@ -175,7 +175,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 		new Button(botonera) => [
 			caption = "Agregar Accion"
-			onClick [|new WindowAgregarAccion(this, this.modelObject.habitacionSeleccionada).open]
+			onClick [|new WindowAgregarAccion(this, this.modelObject.laberintoSeleccionado, this.modelObject.habitacionSeleccionada).open]
 		]
 
 		new Button(botonera) => [

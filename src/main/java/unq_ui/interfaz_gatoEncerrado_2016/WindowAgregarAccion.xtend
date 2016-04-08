@@ -9,11 +9,12 @@ import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import unq_ciu.gatoEncerrado.Habitacion
+import unq_ciu.gatoEncerrado.Laberinto
 
 class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
-	new(WindowOwner parent, Habitacion model) {
-		super(parent, new AgregarAccionAppModel(model))
+	new(WindowOwner parent, Laberinto lab, Habitacion model) {
+		super(parent, new AgregarAccionAppModel(lab,model))
 	}
 
 	override protected addActions(Panel actionsPanel) {
@@ -21,7 +22,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Agregar acciones a la habitacion"
+		this.title = this.modelObject.habitacionActual.nombre + ": agregar accion"
 		this.minHeight = 200
 
 		//No es necesario, el layout default es el vertical
@@ -38,7 +39,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.habitacionActual).open
+				new WindowAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.laberinto,this.modelObject.habitacionActual).open
 			]
 		]
 
@@ -56,7 +57,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.habitacionActual).open
+				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.laberinto, this.modelObject.habitacionActual).open
 			]
 		]
 
