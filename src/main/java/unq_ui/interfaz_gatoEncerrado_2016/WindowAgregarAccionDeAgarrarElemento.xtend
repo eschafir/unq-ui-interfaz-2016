@@ -18,14 +18,16 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Agregar acción de Agarrar un elemento"
+		this.title = "Agarrar un elemento"
 		this.minHeight = 200
 
 		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
 
-		new Label(mainPanel).text = "Escriba el elemento que aparecerá en la habitación"
+		new Label(mainPanel) => [
+			text = "Indicar el item que se puede agarrar en: " + this.modelObject.habitacion.nombre + "."
+		]
 
 		new TextBox(mainPanel) => [
 			value.bindToProperty("item.nombre")

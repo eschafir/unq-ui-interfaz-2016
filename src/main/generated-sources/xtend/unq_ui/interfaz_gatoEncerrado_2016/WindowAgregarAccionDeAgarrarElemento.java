@@ -24,26 +24,36 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Agregar acción de Agarrar un elemento");
+    this.setTitle("Agarrar un elemento");
     this.setMinHeight(200);
     VerticalLayout _verticalLayout = new VerticalLayout();
     mainPanel.setLayout(_verticalLayout);
     mainPanel.setWidth(3000);
     Label _label = new Label(mainPanel);
-    _label.setText("Escriba el elemento que aparecerá en la habitación");
+    final Procedure1<Label> _function = new Procedure1<Label>() {
+      public void apply(final Label it) {
+        AgregarAccionDeAgarrarElementoAppModel _modelObject = WindowAgregarAccionDeAgarrarElemento.this.getModelObject();
+        Habitacion _habitacion = _modelObject.getHabitacion();
+        String _nombre = _habitacion.getNombre();
+        String _plus = ("Indicar el item que se puede agarrar en: " + _nombre);
+        String _plus_1 = (_plus + ".");
+        it.setText(_plus_1);
+      }
+    };
+    ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
     TextBox _textBox = new TextBox(mainPanel);
-    final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
+    final Procedure1<TextBox> _function_1 = new Procedure1<TextBox>() {
       public void apply(final TextBox it) {
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
         _value.<Object>bindToProperty("item.nombre");
       }
     };
-    ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
+    ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function_1);
     final Panel accionesPanel = new Panel(mainPanel);
     HorizontalLayout _horizontalLayout = new HorizontalLayout();
     accionesPanel.setLayout(_horizontalLayout);
     Button _button = new Button(accionesPanel);
-    final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+    final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Cancelar");
         it.setHeight(30);
@@ -56,9 +66,9 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
         it.onClick(_function);
       }
     };
-    ObjectExtensions.<Button>operator_doubleArrow(_button, _function_1);
+    ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
     Button _button_1 = new Button(accionesPanel);
-    final Procedure1<Button> _function_2 = new Procedure1<Button>() {
+    final Procedure1<Button> _function_3 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Agregar");
         it.setHeight(30);
@@ -73,6 +83,6 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
         it.onClick(_function);
       }
     };
-    ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_2);
+    ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
   }
 }

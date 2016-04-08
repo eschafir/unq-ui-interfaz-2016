@@ -14,7 +14,7 @@ import unq_ciu.gatoEncerrado.Laberinto
 class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
 	new(WindowOwner parent, Laberinto lab, Habitacion model) {
-		super(parent, new AgregarAccionAppModel(lab,model))
+		super(parent, new AgregarAccionAppModel(lab, model))
 	}
 
 	override protected addActions(Panel actionsPanel) {
@@ -39,7 +39,8 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.laberinto,this.modelObject.habitacionActual).open
+				new WindowAgregarAccionDeIrAOtraHabitacion(this, this.modelObject.laberinto,
+					this.modelObject.habitacionActual).open
 			]
 		]
 
@@ -57,7 +58,8 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.laberinto, this.modelObject.habitacionActual).open
+				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.laberinto,
+					this.modelObject.habitacionActual).open
 			]
 		]
 
