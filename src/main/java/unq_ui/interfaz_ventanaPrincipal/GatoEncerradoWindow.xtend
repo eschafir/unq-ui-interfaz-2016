@@ -81,9 +81,9 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		 */
 		new Label(owner) => [
 			text = "Laberintos"
-			//height = 40
 			fontSize = 12
 		]
+
 		new List<Laberinto>(owner) => [
 			value.bindToProperty("laberintoSeleccionado")
 			(items.bindToProperty("juego.laberintos")).adapter = new PropertyAdapter(Laberinto, "nombre")
@@ -181,7 +181,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		val inicialCheck = new Panel(owner)
 		inicialCheck.layout = new HorizontalLayout
 		new CheckBox(inicialCheck).value.bindToProperty("habitacionSeleccionada.esInicial")
-		new Label(inicialCheck).text = "Es Inicial?"
+		new Label(inicialCheck).text = "¿Es Inicial?"
 
 		/*
 		 * CHECKBOX FINAL
@@ -190,7 +190,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		finalCheck.layout = new HorizontalLayout
 		new CheckBox(finalCheck).value.bindToProperty("habitacionSeleccionada.esFinal")
 		new Label(finalCheck) => [
-			text = "Es Final?"
+			text = "¿Es Final?"
 			height = 23
 		]
 
@@ -200,7 +200,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		new Label(owner).text = "Acciones"
 		new List<Accion>(owner) => [
 			value.bindToProperty("accionSeleccionada")
-			items.bindToProperty("habitacionSeleccionada.acciones")
+			(items.bindToProperty("habitacionSeleccionada.acciones")).adapter = new PropertyAdapter(Accion, "nombre")
 			height = 73
 		]
 

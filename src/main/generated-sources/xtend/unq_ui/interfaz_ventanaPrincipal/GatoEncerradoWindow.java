@@ -245,7 +245,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       ObservableValue<Control, ControlBuilder> _value_1 = _checkBox.<ControlBuilder>value();
       _value_1.<Object>bindToProperty("habitacionSeleccionada.esInicial");
       Label _label_3 = new Label(inicialCheck);
-      _label_3.setText("Es Inicial?");
+      _label_3.setText("¿Es Inicial?");
       final Panel finalCheck = new Panel(owner);
       HorizontalLayout _horizontalLayout_2 = new HorizontalLayout();
       finalCheck.setLayout(_horizontalLayout_2);
@@ -255,7 +255,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       Label _label_4 = new Label(finalCheck);
       final Procedure1<Label> _function_2 = new Procedure1<Label>() {
         public void apply(final Label it) {
-          it.setText("Es Final?");
+          it.setText("¿Es Final?");
           it.setHeight(23);
         }
       };
@@ -268,7 +268,9 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           _value.<Object>bindToProperty("accionSeleccionada");
           ObservableItems<Selector<Accion>, Accion, ListBuilder<Accion>> _items = it.items();
-          _items.<Object>bindToProperty("habitacionSeleccionada.acciones");
+          Binding<Object, Selector<Accion>, ListBuilder<Accion>> _bindToProperty = _items.<Object>bindToProperty("habitacionSeleccionada.acciones");
+          PropertyAdapter _propertyAdapter = new PropertyAdapter(Accion.class, "nombre");
+          _bindToProperty.setAdapter(_propertyAdapter);
           it.setHeight(73);
         }
       };
