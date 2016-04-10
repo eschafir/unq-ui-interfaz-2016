@@ -64,7 +64,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 		]
 
 		new Button(mainPanel) => [
-			caption = "Cancelar"
+			caption = "Aceptar"
 			onClick [|this.close]
 		]
 	}

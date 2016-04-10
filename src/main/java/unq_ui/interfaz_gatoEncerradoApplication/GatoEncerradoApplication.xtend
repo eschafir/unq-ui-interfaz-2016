@@ -1,4 +1,4 @@
-package unq_ui.interfaz_gatoEncerrado_2016
+package unq_ui.interfaz_gatoEncerradoApplication
 
 import org.uqbar.arena.Application
 import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel

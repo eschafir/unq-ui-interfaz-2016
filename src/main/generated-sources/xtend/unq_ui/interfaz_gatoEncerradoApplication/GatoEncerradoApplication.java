@@ -1,4 +1,4 @@
-package unq_ui.interfaz_gatoEncerrado_2016;
+package unq_ui.interfaz_gatoEncerradoApplication;
 
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;

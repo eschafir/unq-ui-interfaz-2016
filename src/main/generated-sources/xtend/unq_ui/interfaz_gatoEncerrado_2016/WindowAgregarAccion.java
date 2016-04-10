@@ -102,7 +102,7 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
     Button _button_3 = new Button(mainPanel);
     final Procedure1<Button> _function_3 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Cancelar");
+        it.setCaption("Aceptar");
         final Action _function = new Action() {
           public void execute() {
             WindowAgregarAccion.this.close();
