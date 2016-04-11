@@ -1,14 +1,15 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
-import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel
+import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.Button
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel
 import unq_ciu.gatoEncerrado.Habitacion
-import org.uqbar.arena.widgets.Selector
-import org.uqbar.arena.layout.HorizontalLayout
 import unq_ciu.gatoEncerrado.Laberinto
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
@@ -27,10 +28,8 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 
 		new Selector(mainPanel) => [
 			allowNull(false)
-		/**
-			 * TODO
-			 */
-		]
+			value.bindToProperty("itemSeleccionado")
+			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Laberinto, "nombre")
 
 		new Label(mainPanel).text = "Cree la acción a realizar"
 

@@ -15,7 +15,9 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
   
   protected void createFormPanel(final Panel mainPanel) {
     throw new Error("Unresolved compilation problems:"
-      + "\nInvalid number of arguments. The constructor WindowAgregarAccionConsecuencia(WindowOwner, AgregarAccionDeUsarElementoAppModel) is not applicable for the arguments (WindowAgregarAccionDeUsarElemento,Laberinto,Habitacion,Item)"
+      + "\nmissing \']\' at \'}\'"
+      + "\nThe method itemSeleccinado is undefined for the type WindowAgregarAccionDeUsarElemento"
+      + "\nInvalid number of arguments. The constructor WindowAgregarAccionConsecuencia(WindowOwner, AgregarAccionDeUsarElementoAppModel) is not applicable for the arguments (WindowAgregarAccionDeUsarElemento,Laberinto,Habitacion,Object)"
       + "\nType mismatch: cannot convert from Laberinto to AgregarAccionDeUsarElementoAppModel");
   }
 }
