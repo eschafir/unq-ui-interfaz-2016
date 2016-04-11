@@ -16,7 +16,6 @@ import org.uqbar.arena.widgets.List;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.windows.ErrorsPanel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
@@ -66,7 +65,6 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
     {
       final Panel panelDerecho = new Panel(panelPrincipal);
       panelDerecho.setWidth(300);
-      new ErrorsPanel(panelDerecho, "Edita la habitacion");
       _xblockexpression = this.crearEdicionDeHabitacionSeleccionada(panelDerecho);
     }
     return _xblockexpression;
@@ -173,7 +171,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
         public void apply(final TextBox it) {
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-          _value.<Object>bindToProperty("laberintoSeleccionado.nombre");
+          _value.<Object>bindToProperty("nombreLaberinto");
           it.setWidth(100);
         }
       };

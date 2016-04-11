@@ -19,7 +19,6 @@ import unq_ciu.gatoEncerrado.Laberinto
 import unq_ui.interfaz_gatoEncerrado_2016.NuevaHabitacionWindow
 import unq_ui.interfaz_gatoEncerrado_2016.NuevoLaberintoWindow
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion
-import org.uqbar.arena.windows.ErrorsPanel
 
 class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
@@ -27,8 +26,8 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		super(parent, model)
 		this.taskDescription = "Bienvenido al Gato Encerrado 2.0"
 	}
-	override protected addActions(Panel actionsPanel) {
 
+	override protected addActions(Panel actionsPanel) {
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
@@ -52,20 +51,23 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		crearDetalleDeHabitacion(panelPrincipal)
 
 	}
-	
+
 	protected def crearDetalleDeHabitacion(Panel panelPrincipal) {
 		val panelDerecho = new Panel(panelPrincipal)
 		panelDerecho.width = 300
-		new ErrorsPanel(panelDerecho, "Edita la habitacion");
+
+		//new ErrorsPanel(panelDerecho, "Edita la habitacion");
 		this.crearEdicionDeHabitacionSeleccionada(panelDerecho)
 	}
-	
+
 	protected def crearPanelCentral(Panel panelPrincipal) {
 		val panelCentral = new Panel(panelPrincipal)
 		panelCentral.width = 300
+
+		//new ErrorsPanel(panelCentral, "Edita el laberinto")
 		this.crearEdicionDeLaberintoSeleccionado(panelCentral)
 	}
-	
+
 	protected def crearPanelIzquierdo(Panel panelPrincipal) {
 		val panelIzquierdo = new Panel(panelPrincipal)
 		panelIzquierdo.width = 300
@@ -120,7 +122,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 		new Label(panelHeader).text = "Laberinto seleccionado:"
 		new TextBox(panelHeader) => [
-			value.bindToProperty("laberintoSeleccionado.nombre")
+			value.bindToProperty("nombreLaberinto")
 			width = 100
 		]
 
