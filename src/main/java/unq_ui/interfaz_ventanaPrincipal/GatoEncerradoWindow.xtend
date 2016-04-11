@@ -46,8 +46,8 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		val panelPrincipal = new Panel(mainPanel)
 		panelPrincipal.layout = new ColumnLayout(3)
 
-		crearPanelIzquierdo(panelPrincipal)
-		crearPanelCentral(panelPrincipal)
+		crearPanelLaberintos(panelPrincipal)
+		crearPanelHabitaciones(panelPrincipal)
 		crearDetalleDeHabitacion(panelPrincipal)
 
 	}
@@ -60,7 +60,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		this.crearEdicionDeHabitacionSeleccionada(panelDerecho)
 	}
 
-	protected def crearPanelCentral(Panel panelPrincipal) {
+	protected def crearPanelHabitaciones(Panel panelPrincipal) {
 		val panelCentral = new Panel(panelPrincipal)
 		panelCentral.width = 300
 
@@ -68,7 +68,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		this.crearEdicionDeLaberintoSeleccionado(panelCentral)
 	}
 
-	protected def crearPanelIzquierdo(Panel panelPrincipal) {
+	protected def crearPanelLaberintos(Panel panelPrincipal) {
 		val panelIzquierdo = new Panel(panelPrincipal)
 		panelIzquierdo.width = 300
 		this.crearListadoDeLaberintos(panelIzquierdo)

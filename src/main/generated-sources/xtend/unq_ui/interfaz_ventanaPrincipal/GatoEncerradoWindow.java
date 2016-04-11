@@ -55,8 +55,8 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
     final Panel panelPrincipal = new Panel(mainPanel);
     ColumnLayout _columnLayout = new ColumnLayout(3);
     panelPrincipal.setLayout(_columnLayout);
-    this.crearPanelIzquierdo(panelPrincipal);
-    this.crearPanelCentral(panelPrincipal);
+    this.crearPanelLaberintos(panelPrincipal);
+    this.crearPanelHabitaciones(panelPrincipal);
     this.crearDetalleDeHabitacion(panelPrincipal);
   }
   
@@ -70,7 +70,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
     return _xblockexpression;
   }
   
-  protected Button crearPanelCentral(final Panel panelPrincipal) {
+  protected Button crearPanelHabitaciones(final Panel panelPrincipal) {
     Button _xblockexpression = null;
     {
       final Panel panelCentral = new Panel(panelPrincipal);
@@ -80,7 +80,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
     return _xblockexpression;
   }
   
-  protected Button crearPanelIzquierdo(final Panel panelPrincipal) {
+  protected Button crearPanelLaberintos(final Panel panelPrincipal) {
     Button _xblockexpression = null;
     {
       final Panel panelIzquierdo = new Panel(panelPrincipal);
