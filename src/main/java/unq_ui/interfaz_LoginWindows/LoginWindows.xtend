@@ -8,6 +8,7 @@ import org.uqbar.arena.widgets.Label
 import java.awt.Color
 
 class LoginWindows extends SimpleWindow<Login>{
+	//Pantalla de logueo
 	
 	new(WindowOwner parent, Login model) {
 		super(parent, model)
