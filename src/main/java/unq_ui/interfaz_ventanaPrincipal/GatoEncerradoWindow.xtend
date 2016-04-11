@@ -1,41 +1,37 @@
 package unq_ui.interfaz_ventanaPrincipal
 
+import java.awt.Color
+import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.CheckBox
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
-import unq_ciu.gatoEncerrado.Laberinto
-import org.uqbar.arena.bindings.PropertyAdapter
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.widgets.Button
-import unq_ui.interfaz_gatoEncerrado_2016.NuevoLaberintoWindow
-import org.uqbar.arena.layout.HorizontalLayout
-import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel
-import org.uqbar.arena.layout.ColumnLayout
-import unq_ciu.gatoEncerrado.Habitacion
-import unq_ui.interfaz_gatoEncerrado_2016.NuevaHabitacionWindow
-import org.uqbar.arena.widgets.CheckBox
 import unq_ciu.gatoEncerrado.Accion
+import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel
+import unq_ciu.gatoEncerrado.Habitacion
+import unq_ciu.gatoEncerrado.Laberinto
+import unq_ui.interfaz_gatoEncerrado_2016.NuevaHabitacionWindow
+import unq_ui.interfaz_gatoEncerrado_2016.NuevoLaberintoWindow
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion
-import org.uqbar.arena.widgets.TextBox
-import java.awt.Color
+import org.uqbar.arena.windows.ErrorsPanel
 
 class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 	new(WindowOwner parent, GatoEncerradoAppModel model) {
 		super(parent, model)
+		this.taskDescription = "Bienvenido al Gato Encerrado 2.0"
 	}
-
 	override protected addActions(Panel actionsPanel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
-	override createMainTemplate(Panel mainPanel) {
-
 		this.title = "Acá hay gato encerrado..."
 
 		/**
@@ -51,27 +47,29 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 		val panelPrincipal = new Panel(mainPanel)
 		panelPrincipal.layout = new ColumnLayout(3)
 
-		/**
-		 * LADO IZQUIERDO DE LA PANTALLA PRINCIPAL
-		 */
-		val panelIzquierdo = new Panel(panelPrincipal)
-		panelIzquierdo.width = 300
-		this.crearListadoDeLaberintos(panelIzquierdo)
+		crearPanelIzquierdo(panelPrincipal)
+		crearPanelCentral(panelPrincipal)
+		crearDetalleDeHabitacion(panelPrincipal)
 
-		/**
-		 * CENTRO DE LA PANTALLA PRINCIPAL
-		 */
+	}
+	
+	protected def crearDetalleDeHabitacion(Panel panelPrincipal) {
+		val panelDerecho = new Panel(panelPrincipal)
+		panelDerecho.width = 300
+		new ErrorsPanel(panelDerecho, "Edita la habitacion");
+		this.crearEdicionDeHabitacionSeleccionada(panelDerecho)
+	}
+	
+	protected def crearPanelCentral(Panel panelPrincipal) {
 		val panelCentral = new Panel(panelPrincipal)
 		panelCentral.width = 300
 		this.crearEdicionDeLaberintoSeleccionado(panelCentral)
-
-		/**
-		 * LADO DERECHO DE LA PANTALLA PRINCIPAL
-		 */
-		val panelDerecho = new Panel(panelPrincipal)
-		panelDerecho.width = 300
-		this.crearEdicionDeHabitacionSeleccionada(panelDerecho)
-
+	}
+	
+	protected def crearPanelIzquierdo(Panel panelPrincipal) {
+		val panelIzquierdo = new Panel(panelPrincipal)
+		panelIzquierdo.width = 300
+		this.crearListadoDeLaberintos(panelIzquierdo)
 	}
 
 	def crearListadoDeLaberintos(Panel owner) {
@@ -171,7 +169,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 			width = 150
 		]
 		new TextBox(panelHeader) => [
-			value.bindToProperty("habitacionSeleccionada.nombre")
+			value.bindToProperty("nombreHabitacion")
 			width = 100
 		]
 

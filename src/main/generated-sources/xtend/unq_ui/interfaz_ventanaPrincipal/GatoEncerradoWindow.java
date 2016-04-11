@@ -16,6 +16,7 @@ import org.uqbar.arena.widgets.List;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
+import org.uqbar.arena.windows.ErrorsPanel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
@@ -35,17 +36,13 @@ import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
 public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
   public GatoEncerradoWindow(final WindowOwner parent, final GatoEncerradoAppModel model) {
     super(parent, model);
+    this.setTaskDescription("Bienvenido al Gato Encerrado 2.0");
   }
   
   protected void addActions(final Panel actionsPanel) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
-  }
-  
-  public void createMainTemplate(final Panel mainPanel) {
     this.setTitle("Acá hay gato encerrado...");
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
@@ -59,15 +56,40 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
     final Panel panelPrincipal = new Panel(mainPanel);
     ColumnLayout _columnLayout = new ColumnLayout(3);
     panelPrincipal.setLayout(_columnLayout);
-    final Panel panelIzquierdo = new Panel(panelPrincipal);
-    panelIzquierdo.setWidth(300);
-    this.crearListadoDeLaberintos(panelIzquierdo);
-    final Panel panelCentral = new Panel(panelPrincipal);
-    panelCentral.setWidth(300);
-    this.crearEdicionDeLaberintoSeleccionado(panelCentral);
-    final Panel panelDerecho = new Panel(panelPrincipal);
-    panelDerecho.setWidth(300);
-    this.crearEdicionDeHabitacionSeleccionada(panelDerecho);
+    this.crearPanelIzquierdo(panelPrincipal);
+    this.crearPanelCentral(panelPrincipal);
+    this.crearDetalleDeHabitacion(panelPrincipal);
+  }
+  
+  protected Button crearDetalleDeHabitacion(final Panel panelPrincipal) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelDerecho = new Panel(panelPrincipal);
+      panelDerecho.setWidth(300);
+      new ErrorsPanel(panelDerecho, "Edita la habitacion");
+      _xblockexpression = this.crearEdicionDeHabitacionSeleccionada(panelDerecho);
+    }
+    return _xblockexpression;
+  }
+  
+  protected Button crearPanelCentral(final Panel panelPrincipal) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelCentral = new Panel(panelPrincipal);
+      panelCentral.setWidth(300);
+      _xblockexpression = this.crearEdicionDeLaberintoSeleccionado(panelCentral);
+    }
+    return _xblockexpression;
+  }
+  
+  protected Button crearPanelIzquierdo(final Panel panelPrincipal) {
+    Button _xblockexpression = null;
+    {
+      final Panel panelIzquierdo = new Panel(panelPrincipal);
+      panelIzquierdo.setWidth(300);
+      _xblockexpression = this.crearListadoDeLaberintos(panelIzquierdo);
+    }
+    return _xblockexpression;
   }
   
   public Button crearListadoDeLaberintos(final Panel owner) {
@@ -233,7 +255,7 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
       final Procedure1<TextBox> _function_1 = new Procedure1<TextBox>() {
         public void apply(final TextBox it) {
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-          _value.<Object>bindToProperty("habitacionSeleccionada.nombre");
+          _value.<Object>bindToProperty("nombreHabitacion");
           it.setWidth(100);
         }
       };
