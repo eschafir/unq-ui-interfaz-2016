@@ -20,7 +20,7 @@ public class LoginWindows extends SimpleWindow<Login> {
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Acá hay gato encerrado...");
+    this.setTitle("Acá hay gato encerrado - Inicio de Sesión");
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
