@@ -20,11 +20,11 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 
 	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Ir a otra habitación"
-		this.minHeight = 300
+		this.minHeight = 200
 
 		new Label(mainPanel) => [
 			text = this.modelObject.habitacion.nombre + " -> ir hacia:"
-			width = 300
+			width = 200
 		]
 
 		new Selector<Habitacion>(mainPanel) => [
@@ -36,17 +36,16 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 		val accionesPanel = new Panel(mainPanel)
 		accionesPanel.layout = new HorizontalLayout
 
-		new Button(mainPanel) => [
-			caption = "Cancelar"
-			onClick [|this.close]
-		]
-
-		new Button(mainPanel) => [
-			caption = "Agregar"
+		new Button(accionesPanel) => [
+			caption = "Aceptar"
 			onClick [|
 				this.modelObject.agregarAccion
 				this.close
 			]
+		]
+		new Button(accionesPanel) => [
+			caption = "Cancelar"
+			onClick [|this.close]
 		]
 	}
 

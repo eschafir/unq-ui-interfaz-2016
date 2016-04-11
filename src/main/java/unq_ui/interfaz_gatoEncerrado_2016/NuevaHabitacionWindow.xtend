@@ -1,6 +1,5 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
-import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
@@ -11,6 +10,7 @@ import unq_ciu.gatoEncerrado.AppModel.CrearHabitacionAppModel
 import unq_ciu.gatoEncerrado.Laberinto
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.CheckBox
+import org.uqbar.arena.windows.Dialog
 
 class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
 
@@ -47,11 +47,22 @@ class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
 		new CheckBox(finalCheck).value.bindToProperty("habitacion.esFinal")
 		new Label(finalCheck).text = "¿Es Final?"
 
-		new Button(mainPanel) => [
+		val botonera = new Panel(mainPanel)
+		botonera.layout = new HorizontalLayout
+	
+		new Button(botonera) => [
 			caption = "Aceptar"
 			onClick [|
+				this.modelObject.verificar
 				this.modelObject.agregarHabitacion
 				this.close
+			]
+		]
+
+		new Button(botonera) => [
+			caption = "Cancelar"
+			onClick [|
+				this.cancel
 			]
 		]
 	}

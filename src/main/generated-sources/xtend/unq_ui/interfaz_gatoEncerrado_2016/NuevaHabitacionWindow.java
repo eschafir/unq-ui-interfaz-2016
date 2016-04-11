@@ -69,14 +69,19 @@ public class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
     _value_1.<Object>bindToProperty("habitacion.esFinal");
     Label _label_2 = new Label(finalCheck);
     _label_2.setText("¿Es Final?");
-    Button _button = new Button(mainPanel);
+    final Panel botonera = new Panel(mainPanel);
+    HorizontalLayout _horizontalLayout_3 = new HorizontalLayout();
+    botonera.setLayout(_horizontalLayout_3);
+    Button _button = new Button(botonera);
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Aceptar");
         final Action _function = new Action() {
           public void execute() {
             CrearHabitacionAppModel _modelObject = NuevaHabitacionWindow.this.getModelObject();
-            _modelObject.agregarHabitacion();
+            _modelObject.verificar();
+            CrearHabitacionAppModel _modelObject_1 = NuevaHabitacionWindow.this.getModelObject();
+            _modelObject_1.agregarHabitacion();
             NuevaHabitacionWindow.this.close();
           }
         };
@@ -84,5 +89,18 @@ public class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
+    Button _button_1 = new Button(botonera);
+    final Procedure1<Button> _function_3 = new Procedure1<Button>() {
+      public void apply(final Button it) {
+        it.setCaption("Cancelar");
+        final Action _function = new Action() {
+          public void execute() {
+            NuevaHabitacionWindow.this.cancel();
+          }
+        };
+        it.onClick(_function);
+      }
+    };
+    ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
   }
 }

@@ -55,11 +55,13 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
     Button _button = new Button(accionesPanel);
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Cancelar");
+        it.setCaption("Aceptar");
         it.setHeight(30);
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionDeAgarrarElementoAppModel _modelObject = WindowAgregarAccionDeAgarrarElemento.this.getModelObject();
+            _modelObject.agregarAcccionAgarrar();
             WindowAgregarAccionDeAgarrarElemento.this.close();
           }
         };
@@ -70,13 +72,11 @@ public class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDe
     Button _button_1 = new Button(accionesPanel);
     final Procedure1<Button> _function_3 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Agregar");
+        it.setCaption("Cancelar");
         it.setHeight(30);
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
-            AgregarAccionDeAgarrarElementoAppModel _modelObject = WindowAgregarAccionDeAgarrarElemento.this.getModelObject();
-            _modelObject.agregarAcccionAgarrar();
             WindowAgregarAccionDeAgarrarElemento.this.close();
           }
         };

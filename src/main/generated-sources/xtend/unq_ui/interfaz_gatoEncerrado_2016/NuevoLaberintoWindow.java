@@ -3,6 +3,7 @@ package unq_ui.interfaz_gatoEncerrado_2016;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableValue;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
@@ -44,7 +45,10 @@ public class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
       }
     };
     ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function_1);
-    Button _button = new Button(mainPanel);
+    final Panel botonera = new Panel(mainPanel);
+    HorizontalLayout _horizontalLayout = new HorizontalLayout();
+    botonera.setLayout(_horizontalLayout);
+    Button _button = new Button(botonera);
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
         it.setCaption("Aceptar");
@@ -59,5 +63,18 @@ public class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
+    Button _button_1 = new Button(botonera);
+    final Procedure1<Button> _function_3 = new Procedure1<Button>() {
+      public void apply(final Button it) {
+        it.setCaption("Cancelar");
+        final Action _function = new Action() {
+          public void execute() {
+            NuevoLaberintoWindow.this.close();
+          }
+        };
+        it.onClick(_function);
+      }
+    };
+    ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
   }
 }
