@@ -37,20 +37,20 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 		accionesPanel.layout = new HorizontalLayout
 
 		new Button(accionesPanel) => [
-			caption = "Cancelar"
-			height = 30
-			width = 150
-			onClick [|this.close]
-		]
-
-		new Button(accionesPanel) => [
-			caption = "Agregar"
+			caption = "Aceptar"
 			height = 30
 			width = 150
 			onClick [|
 				this.modelObject.agregarAcccionAgarrar
 				this.close
 			]
+		]
+
+		new Button(accionesPanel) => [
+			caption = "Cancelar"
+			height = 30
+			width = 150
+			onClick [|this.close]
 		]
 	}
 }

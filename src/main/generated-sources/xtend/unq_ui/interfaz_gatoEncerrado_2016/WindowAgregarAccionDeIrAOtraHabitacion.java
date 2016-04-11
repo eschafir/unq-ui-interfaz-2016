@@ -29,7 +29,7 @@ public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccion
   
   protected void createFormPanel(final Panel mainPanel) {
     this.setTitle("Ir a otra habitación");
-    this.setMinHeight(300);
+    this.setMinHeight(200);
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
@@ -38,7 +38,7 @@ public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccion
         String _nombre = _habitacion.getNombre();
         String _plus = (_nombre + " -> ir hacia:");
         it.setText(_plus);
-        it.setWidth(300);
+        it.setWidth(200);
       }
     };
     ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
@@ -58,12 +58,14 @@ public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccion
     final Panel accionesPanel = new Panel(mainPanel);
     HorizontalLayout _horizontalLayout = new HorizontalLayout();
     accionesPanel.setLayout(_horizontalLayout);
-    Button _button = new Button(mainPanel);
+    Button _button = new Button(accionesPanel);
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Cancelar");
+        it.setCaption("Aceptar");
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionDeIrAOtraHabitacionAppModel _modelObject = WindowAgregarAccionDeIrAOtraHabitacion.this.getModelObject();
+            _modelObject.agregarAccion();
             WindowAgregarAccionDeIrAOtraHabitacion.this.close();
           }
         };
@@ -71,14 +73,12 @@ public class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccion
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
-    Button _button_1 = new Button(mainPanel);
+    Button _button_1 = new Button(accionesPanel);
     final Procedure1<Button> _function_3 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Agregar");
+        it.setCaption("Cancelar");
         final Action _function = new Action() {
           public void execute() {
-            AgregarAccionDeIrAOtraHabitacionAppModel _modelObject = WindowAgregarAccionDeIrAOtraHabitacion.this.getModelObject();
-            _modelObject.agregarAccion();
             WindowAgregarAccionDeIrAOtraHabitacion.this.close();
           }
         };

@@ -212,14 +212,17 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 		new Button(botonera) => [
 			caption = "Agregar Accion"
-			onClick [|
+			onClick [|this.modelObject.verificar
 				new WindowAgregarAccion(this, this.modelObject.laberintoSeleccionado,
 					this.modelObject.habitacionSeleccionada).open]
 		]
 
 		new Button(botonera) => [
 			caption = "Quitar Accion"
-			onClick [|this.modelObject.quitarAccion]
+			onClick [|
+				this.modelObject.verificar
+				this.modelObject.quitarAccion
+			]
 		]
 	}
 }

@@ -9,6 +9,7 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import unq_ciu.gatoEncerrado.AppModel.CrearLaberintoAppModel
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.layout.HorizontalLayout
 
 class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
 
@@ -29,12 +30,21 @@ class NuevoLaberintoWindow extends Dialog<CrearLaberintoAppModel> {
 			value.bindToProperty("laberinto.nombre")
 			width = 200
 		]
-		new Button(mainPanel) => [
+
+		val botonera = new Panel(mainPanel)
+		botonera.layout = new HorizontalLayout
+
+		new Button(botonera) => [
 			caption = "Aceptar"
 			onClick [|
 				this.modelObject.agregarLaberinto
 				this.close
 			]
+		]
+
+		new Button(botonera) => [
+			caption = "Cancelar"
+			onClick [this.close]
 		]
 	}
 

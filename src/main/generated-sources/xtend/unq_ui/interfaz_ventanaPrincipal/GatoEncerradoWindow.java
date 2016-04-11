@@ -285,9 +285,11 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           final Action _function = new Action() {
             public void execute() {
               GatoEncerradoAppModel _modelObject = GatoEncerradoWindow.this.getModelObject();
-              Laberinto _laberintoSeleccionado = _modelObject.getLaberintoSeleccionado();
+              _modelObject.verificar();
               GatoEncerradoAppModel _modelObject_1 = GatoEncerradoWindow.this.getModelObject();
-              Habitacion _habitacionSeleccionada = _modelObject_1.getHabitacionSeleccionada();
+              Laberinto _laberintoSeleccionado = _modelObject_1.getLaberintoSeleccionado();
+              GatoEncerradoAppModel _modelObject_2 = GatoEncerradoWindow.this.getModelObject();
+              Habitacion _habitacionSeleccionada = _modelObject_2.getHabitacionSeleccionada();
               WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(GatoEncerradoWindow.this, _laberintoSeleccionado, _habitacionSeleccionada);
               _windowAgregarAccion.open();
             }
@@ -303,7 +305,9 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
           final Action _function = new Action() {
             public void execute() {
               GatoEncerradoAppModel _modelObject = GatoEncerradoWindow.this.getModelObject();
-              _modelObject.quitarAccion();
+              _modelObject.verificar();
+              GatoEncerradoAppModel _modelObject_1 = GatoEncerradoWindow.this.getModelObject();
+              _modelObject_1.quitarAccion();
             }
           };
           it.onClick(_function);
