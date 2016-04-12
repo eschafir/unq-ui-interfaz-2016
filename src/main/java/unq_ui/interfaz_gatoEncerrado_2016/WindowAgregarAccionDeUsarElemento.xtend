@@ -12,6 +12,7 @@ import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConsecuencia
+import unq_ciu.gatoEncerrado.Item
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
 
@@ -30,7 +31,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 		new Selector(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("itemSeleccionado")
-			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Laberinto, "nombre")
+			(items.bindToProperty("itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
 			new Label(mainPanel).text = "Cree la acción a realizar"
 			new Button(mainPanel) => [
 				caption = "Agregar acción"

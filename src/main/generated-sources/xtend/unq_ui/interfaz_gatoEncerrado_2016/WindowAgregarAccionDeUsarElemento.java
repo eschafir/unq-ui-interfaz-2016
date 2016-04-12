@@ -46,8 +46,8 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
         _value.<Object>bindToProperty("itemSeleccionado");
         ObservableItems<Selector<Object>, Object, ListBuilder<Object>> _items = it.items();
-        Binding<Object, Selector<Object>, ListBuilder<Object>> _bindToProperty = _items.<Object>bindToProperty("laberinto.itemsDisponibles");
-        PropertyAdapter _propertyAdapter = new PropertyAdapter(Laberinto.class, "nombre");
+        Binding<Object, Selector<Object>, ListBuilder<Object>> _bindToProperty = _items.<Object>bindToProperty("itemsDisponibles");
+        PropertyAdapter _propertyAdapter = new PropertyAdapter(Item.class, "nombre");
         _bindToProperty.setAdapter(_propertyAdapter);
         Label _label = new Label(mainPanel);
         _label.setText("Cree la acción a realizar");
