@@ -72,7 +72,6 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 			caption = "Login"
 			width = 65
 			onClick [|
-				//
 				this.modelObject.validarUsuario()
 				//this.modelObject.quitarAccion
 			]
