@@ -79,9 +79,13 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 				val modelo = new GatoEncerradoAppModel => [
 					juego = new DummyData().crearJuegoDummy
 				]
-				new GatoEncerradoWindow(this, modelo) 
+				
+				
+				this.modelObject.validaUsuario
+				
+				new GatoEncerradoWindow(this, modelo).open
 		]
-		]
+	]
 	
 	}
 }
