@@ -30,6 +30,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			allowNull(false)
 			value.bindToProperty("itemSeleccionado")
 			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Laberinto, "nombre")
+			
 			new Label(mainPanel).text = "Cree la acción a realizar"
 			new Button(mainPanel) => [
 				caption = "Agregar acción"

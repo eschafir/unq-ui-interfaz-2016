@@ -25,7 +25,6 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 		this.title = this.modelObject.habitacionActual.nombre + ": agregar accion"
 		this.minHeight = 200
 
-		//No es necesario, el layout default es el vertical
 		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
 
