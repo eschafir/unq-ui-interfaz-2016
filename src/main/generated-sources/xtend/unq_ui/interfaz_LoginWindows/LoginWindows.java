@@ -4,14 +4,11 @@ import java.awt.Color;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.layout.ColumnLayout;
-import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.lacar.ui.model.Action;
 import unq_ciu.gatoEncerrado.AppModel.LoginAppModel;
 
 @SuppressWarnings("all")
@@ -42,65 +39,7 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
   }
   
   public Button crearPanelLogin(final Panel owner) {
-    Button _xblockexpression = null;
-    {
-      final Panel panelHeader = new Panel(owner);
-      ColumnLayout _columnLayout = new ColumnLayout(2);
-      panelHeader.setLayout(_columnLayout);
-      Label _label = new Label(panelHeader);
-      _label.setText("Username:");
-      TextBox _textBox = new TextBox(panelHeader);
-      final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
-        public void apply(final TextBox it) {
-          it.setWidth(50);
-        }
-      };
-      ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
-      Label _label_1 = new Label(panelHeader);
-      final Procedure1<Label> _function_1 = new Procedure1<Label>() {
-        public void apply(final Label it) {
-          it.setText("Password:");
-        }
-      };
-      ObjectExtensions.<Label>operator_doubleArrow(_label_1, _function_1);
-      TextBox _textBox_1 = new TextBox(panelHeader);
-      final Procedure1<TextBox> _function_2 = new Procedure1<TextBox>() {
-        public void apply(final TextBox it) {
-          it.setWidth(50);
-        }
-      };
-      ObjectExtensions.<TextBox>operator_doubleArrow(_textBox_1, _function_2);
-      final Panel botonera = new Panel(owner);
-      HorizontalLayout _horizontalLayout = new HorizontalLayout();
-      botonera.setLayout(_horizontalLayout);
-      Button _button = new Button(botonera);
-      final Procedure1<Button> _function_3 = new Procedure1<Button>() {
-        public void apply(final Button it) {
-          it.setCaption("Cancel");
-          it.setWidth(65);
-          final Action _function = new Action() {
-            public void execute() {
-              LoginWindows.this.close();
-            }
-          };
-          it.onClick(_function);
-        }
-      };
-      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_3);
-      Button _button_1 = new Button(botonera);
-      final Procedure1<Button> _function_4 = new Procedure1<Button>() {
-        public void apply(final Button it) {
-          it.setCaption("Login");
-          it.setWidth(65);
-          final Action _function = new Action() {
-            public void execute() {
-            }
-          };
-          it.onClick(_function);
-        }
-      };
-      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_4);
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid number of arguments. The method validarUsuario(String, String) is not applicable without arguments");
   }
 }
