@@ -26,6 +26,16 @@ import unq_ciu.gatoEncerrado.Laberinto;
 public class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel> {
   public WindowAgregarAccionDeIrAOtraHabitacionConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item) {
     super(owner, new AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel(lab, hab, item));
+    AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel _modelObject = this.getModelObject();
+    Item _item = _modelObject.getItem();
+    String _nombre = _item.getNombre();
+    String _plus = ("Consecuencia de usar " + _nombre);
+    String _plus_1 = (_plus + " en ");
+    AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel _modelObject_1 = this.getModelObject();
+    Habitacion _habitacion = _modelObject_1.getHabitacion();
+    String _nombre_1 = _habitacion.getNombre();
+    String _plus_2 = (_plus_1 + _nombre_1);
+    this.setTaskDescription(_plus_2);
   }
   
   protected void createFormPanel(final Panel mainPanel) {

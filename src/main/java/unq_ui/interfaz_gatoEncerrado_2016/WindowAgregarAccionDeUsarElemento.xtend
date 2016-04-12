@@ -38,6 +38,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 				height = 30
 				width = 40
 				onClick [|
+					this.modelObject.validarItem
 					new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion,
 						this.modelObject.itemSeleccionado).open
 				]

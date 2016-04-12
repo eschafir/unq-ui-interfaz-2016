@@ -17,10 +17,13 @@ class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<AgregarA
 
 	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item) {
 		super(owner, new AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel(lab, hab, item))
+		this.taskDescription = "Consecuencia de usar " + this.modelObject.item.nombre + " en " +
+			this.modelObject.habitacion.nombre
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Consecuencia - Ir a otra habitación"
+
 		this.minHeight = 200
 
 		new Label(mainPanel) => [
