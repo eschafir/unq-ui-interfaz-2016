@@ -10,6 +10,8 @@ import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
+import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow
+import unq_ui.interfaz_gatoEncerradoApplication.GatoEncerradoApplication
 
 class LoginWindows extends SimpleWindow<LoginAppModel> {
 
@@ -45,6 +47,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 		new TextBox(panelHeader) => [
 			width = 50
+			value.bindToProperty("usuario.username")
 		]
 		
 		new Label(panelHeader) => [ 
@@ -53,6 +56,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 		
 		new TextBox(panelHeader) => [
 			width = 50
+			value.bindToProperty("usuario.password")
 		]
 		
 		//Botones Cancel y Login
@@ -71,11 +75,8 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 		new Button(botonera) => [
 			caption = "Login"
 			width = 65
-			onClick [|
-				this.modelObject.validarUsuario()
-				//this.modelObject.quitarAccion
+			onClick [| new GatoEncerradoWindow(new GatoEncerradoApplication, "¿Acá que va?").open]
 			]
-		]
 		
 		}
 	}
