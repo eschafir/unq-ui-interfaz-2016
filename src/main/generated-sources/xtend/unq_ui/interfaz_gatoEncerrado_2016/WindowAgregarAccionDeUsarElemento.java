@@ -60,11 +60,13 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
             final Action _function = new Action() {
               public void execute() {
                 AgregarAccionDeUsarElementoAppModel _modelObject = WindowAgregarAccionDeUsarElemento.this.getModelObject();
-                Laberinto _laberinto = _modelObject.getLaberinto();
+                _modelObject.validarItem();
                 AgregarAccionDeUsarElementoAppModel _modelObject_1 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
-                Habitacion _habitacion = _modelObject_1.getHabitacion();
+                Laberinto _laberinto = _modelObject_1.getLaberinto();
                 AgregarAccionDeUsarElementoAppModel _modelObject_2 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
-                Item _itemSeleccionado = _modelObject_2.getItemSeleccionado();
+                Habitacion _habitacion = _modelObject_2.getHabitacion();
+                AgregarAccionDeUsarElementoAppModel _modelObject_3 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
+                Item _itemSeleccionado = _modelObject_3.getItemSeleccionado();
                 WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion, _itemSeleccionado);
                 _windowAgregarAccionConsecuencia.open();
               }
