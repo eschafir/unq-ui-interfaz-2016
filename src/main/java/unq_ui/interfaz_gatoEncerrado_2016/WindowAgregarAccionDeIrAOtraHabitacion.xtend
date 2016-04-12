@@ -30,7 +30,7 @@ class WindowAgregarAccionDeIrAOtraHabitacion extends Dialog<AgregarAccionDeIrAOt
 		new Selector<Habitacion>(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("habitacionSeleccionada")
-			(items.bindToProperty("laberinto.habitaciones")).adapter = new PropertyAdapter(Habitacion, "nombre")
+			(items.bindToProperty("habitacionesDisponibles")).adapter = new PropertyAdapter(Habitacion, "nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)
