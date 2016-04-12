@@ -1,15 +1,15 @@
-package unq_ui.interfaz_gatoEncerrado_2016
+package unq_ui.interfaz_gatoEncerrado_2016.Consecuencias
 
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
-import unq_ciu.gatoEncerrado.AppModel.AgregarAccionConsecuenciaAppModel
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Item
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
+import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionConsecuenciaAppModel
 
 class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
 

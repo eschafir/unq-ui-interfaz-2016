@@ -19,8 +19,9 @@ import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
-import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConsecuencia;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
@@ -62,8 +63,10 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
                 Laberinto _laberinto = _modelObject.getLaberinto();
                 AgregarAccionDeUsarElementoAppModel _modelObject_1 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
                 Habitacion _habitacion = _modelObject_1.getHabitacion();
-                WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion);
-                _windowAgregarAccion.open();
+                AgregarAccionDeUsarElementoAppModel _modelObject_2 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
+                Item _itemSeleccionado = _modelObject_2.getItemSeleccionado();
+                WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion, _itemSeleccionado);
+                _windowAgregarAccionConsecuencia.open();
               }
             };
             it.onClick(_function);
@@ -79,7 +82,7 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
     Button _button = new Button(accionPanel);
     final Procedure1<Button> _function_2 = new Procedure1<Button>() {
       public void apply(final Button it) {
-        it.setCaption("Cancelar");
+        it.setCaption("Aceptar");
         it.setHeight(30);
         it.setWidth(150);
         final Action _function = new Action() {
@@ -91,19 +94,5 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
       }
     };
     ObjectExtensions.<Button>operator_doubleArrow(_button, _function_2);
-    Button _button_1 = new Button(accionPanel);
-    final Procedure1<Button> _function_3 = new Procedure1<Button>() {
-      public void apply(final Button it) {
-        it.setCaption("Agregar");
-        it.setHeight(30);
-        it.setWidth(150);
-        final Action _function = new Action() {
-          public void execute() {
-          }
-        };
-        it.onClick(_function);
-      }
-    };
-    ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_3);
   }
 }

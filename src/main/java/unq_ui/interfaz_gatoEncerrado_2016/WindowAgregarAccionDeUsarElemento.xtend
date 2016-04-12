@@ -11,6 +11,7 @@ import org.uqbar.arena.windows.WindowOwner
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConsecuencia
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
 
@@ -30,37 +31,27 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			allowNull(false)
 			value.bindToProperty("itemSeleccionado")
 			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Laberinto, "nombre")
-			
 			new Label(mainPanel).text = "Cree la acción a realizar"
 			new Button(mainPanel) => [
 				caption = "Agregar acción"
 				height = 30
 				width = 40
 				onClick [|
-					new WindowAgregarAccion(this, this.modelObject.laberinto, this.modelObject.habitacion).open
-				]
-				]
-			]
-			val accionPanel = new Panel(mainPanel)
-			accionPanel.layout = new HorizontalLayout
-			new Button(accionPanel) => [
-				caption = "Cancelar"
-				height = 30
-				width = 150
-				onClick [|
-					this.close
+					new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion,
+						this.modelObject.itemSeleccionado).open
 				]
 			]
-			new Button(accionPanel) => [
-				caption = "Agregar"
-				height = 30
-				width = 150
-				onClick [|
-				/**
-				 * TODO
-				 */	
-				]
+		]
+		val accionPanel = new Panel(mainPanel)
+		accionPanel.layout = new HorizontalLayout
+		new Button(accionPanel) => [
+			caption = "Aceptar"
+			height = 30
+			width = 150
+			onClick [|
+				this.close
 			]
-			}
-		}
-	
+		]
+
+	}
+}
