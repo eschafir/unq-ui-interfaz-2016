@@ -49,7 +49,7 @@ class NuevaHabitacionWindow extends Dialog<CrearHabitacionAppModel> {
 
 		val botonera = new Panel(mainPanel)
 		botonera.layout = new HorizontalLayout
-	
+
 		new Button(botonera) => [
 			caption = "Aceptar"
 			onClick [|
