@@ -59,7 +59,9 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 			value.bindToProperty("claveIngresada")
 		]
 
-		//Botones Cancel y Login
+		/**
+		 * BOTON CANCEL Y LOGIN
+		 */
 		val botonera = new Panel(owner)
 		botonera.layout = new HorizontalLayout
 
