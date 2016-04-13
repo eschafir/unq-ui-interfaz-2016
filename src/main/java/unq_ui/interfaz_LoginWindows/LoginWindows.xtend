@@ -83,6 +83,5 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 				new GatoEncerradoWindow(this, modelo).open
 			]
 		]
-
 	}
 }
