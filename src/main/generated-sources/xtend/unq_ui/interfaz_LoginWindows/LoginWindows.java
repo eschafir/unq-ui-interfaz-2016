@@ -119,9 +119,7 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
               };
               final GatoEncerradoAppModel modelo = ObjectExtensions.<GatoEncerradoAppModel>operator_doubleArrow(_gatoEncerradoAppModel, _function);
               LoginAppModel _modelObject = LoginWindows.this.getModelObject();
-              _modelObject.validaUsuario();
-              LoginAppModel _modelObject_1 = LoginWindows.this.getModelObject();
-              _modelObject_1.validarClave();
+              _modelObject.validarUsuarioYClave();
               GatoEncerradoWindow _gatoEncerradoWindow = new GatoEncerradoWindow(LoginWindows.this, modelo);
               _gatoEncerradoWindow.open();
             }
