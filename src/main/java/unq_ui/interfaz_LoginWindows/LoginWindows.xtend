@@ -48,7 +48,6 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 		new TextBox(panelHeader) => [
 			width = 50
 			value.bindToProperty("usuarioIngresado.username")
-
 		]
 
 		new Label(panelHeader) => [
@@ -80,8 +79,6 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 					juego = new DummyData().crearJuegoDummy
 					usuario = this.modelObject.usuarioIngresado
 				]
-				
-				//this.modelObject.validarCamposVacios
 				this.modelObject.validarUsuarioYClave
 				new GatoEncerradoWindow(this, modelo).open
 			]
