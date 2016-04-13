@@ -77,6 +77,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 			onClick [|
 				val modelo = new GatoEncerradoAppModel => [
 					juego = new DummyData().crearJuegoDummy
+					usuario = this.modelObject.usuarioIngresado
 				]
 				this.modelObject.validaUsuario
 				this.modelObject.validarClave

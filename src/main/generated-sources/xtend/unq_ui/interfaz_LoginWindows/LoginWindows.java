@@ -18,6 +18,7 @@ import org.uqbar.lacar.ui.model.ControlBuilder;
 import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel;
 import unq_ciu.gatoEncerrado.AppModel.LoginAppModel;
 import unq_ciu.gatoEncerrado.Juego;
+import unq_ciu.gatoEncerrado.Login.Usuario;
 import unq_ciu.gatoEncerrado_DummyData.DummyData;
 import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 
@@ -111,6 +112,9 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
                   DummyData _dummyData = new DummyData();
                   Juego _crearJuegoDummy = _dummyData.crearJuegoDummy();
                   it.setJuego(_crearJuegoDummy);
+                  LoginAppModel _modelObject = LoginWindows.this.getModelObject();
+                  Usuario _usuarioIngresado = _modelObject.getUsuarioIngresado();
+                  it.setUsuario(_usuarioIngresado);
                 }
               };
               final GatoEncerradoAppModel modelo = ObjectExtensions.<GatoEncerradoAppModel>operator_doubleArrow(_gatoEncerradoAppModel, _function);

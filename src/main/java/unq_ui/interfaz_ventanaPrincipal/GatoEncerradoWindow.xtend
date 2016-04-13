@@ -24,7 +24,7 @@ class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
 
 	new(WindowOwner parent, GatoEncerradoAppModel model) {
 		super(parent, model)
-		this.taskDescription = "Bienvenido al Gato Encerrado 2.0"
+		this.taskDescription = "Bienvenido " +  this.modelObject.usuario.username + " al Gato Encerrado 2.0"
 	}
 
 	override protected addActions(Panel actionsPanel) {

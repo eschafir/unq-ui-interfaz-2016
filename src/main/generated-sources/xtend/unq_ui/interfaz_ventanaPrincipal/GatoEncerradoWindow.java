@@ -27,6 +27,7 @@ import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Juego;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ciu.gatoEncerrado.Login.Usuario;
 import unq_ui.interfaz_gatoEncerrado_2016.NuevaHabitacionWindow;
 import unq_ui.interfaz_gatoEncerrado_2016.NuevoLaberintoWindow;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
@@ -35,7 +36,12 @@ import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccion;
 public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
   public GatoEncerradoWindow(final WindowOwner parent, final GatoEncerradoAppModel model) {
     super(parent, model);
-    this.setTaskDescription("Bienvenido al Gato Encerrado 2.0");
+    GatoEncerradoAppModel _modelObject = this.getModelObject();
+    Usuario _usuario = _modelObject.getUsuario();
+    String _username = _usuario.getUsername();
+    String _plus = ("Bienvenido " + _username);
+    String _plus_1 = (_plus + " al Gato Encerrado 2.0");
+    this.setTaskDescription(_plus_1);
   }
   
   protected void addActions(final Panel actionsPanel) {
