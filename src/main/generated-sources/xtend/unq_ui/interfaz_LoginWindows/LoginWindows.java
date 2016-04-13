@@ -61,7 +61,7 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
         public void apply(final TextBox it) {
           it.setWidth(50);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-          _value.<Object>bindToProperty("usuario.username");
+          _value.<Object>bindToProperty("usuarioIngresado.username");
         }
       };
       ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function);
@@ -116,6 +116,8 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
               final GatoEncerradoAppModel modelo = ObjectExtensions.<GatoEncerradoAppModel>operator_doubleArrow(_gatoEncerradoAppModel, _function);
               LoginAppModel _modelObject = LoginWindows.this.getModelObject();
               _modelObject.validaUsuario();
+              LoginAppModel _modelObject_1 = LoginWindows.this.getModelObject();
+              _modelObject_1.validarClave();
               GatoEncerradoWindow _gatoEncerradoWindow = new GatoEncerradoWindow(LoginWindows.this, modelo);
               _gatoEncerradoWindow.open();
             }

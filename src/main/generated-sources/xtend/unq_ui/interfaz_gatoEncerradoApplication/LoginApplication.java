@@ -4,6 +4,7 @@ import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
 import unq_ciu.gatoEncerrado.AppModel.LoginAppModel;
 import unq_ciu.gatoEncerrado.Login.Login;
+import unq_ciu.gatoEncerrado.Login.Usuario;
 import unq_ui.interfaz_LoginWindows.LoginWindows;
 
 @SuppressWarnings("all")
@@ -11,8 +12,10 @@ public class LoginApplication extends Application {
   protected Window<?> createMainWindow() {
     LoginWindows _xblockexpression = null;
     {
-      Login _login = new Login();
-      final LoginAppModel modelo = new LoginAppModel(_login);
+      final Usuario ui = new Usuario("ui2016", "123456");
+      final Login login = new Login();
+      login.agregarUsuario(ui);
+      final LoginAppModel modelo = new LoginAppModel(login);
       _xblockexpression = new LoginWindows(this, modelo);
     }
     return _xblockexpression;

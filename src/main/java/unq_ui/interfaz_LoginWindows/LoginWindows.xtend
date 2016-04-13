@@ -11,7 +11,6 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow
-import unq_ui.interfaz_gatoEncerradoApplication.GatoEncerradoApplication
 import unq_ciu.gatoEncerrado.AppModel.GatoEncerradoAppModel
 import unq_ciu.gatoEncerrado_DummyData.DummyData
 
@@ -48,7 +47,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 		new TextBox(panelHeader) => [
 			width = 50
-			value.bindToProperty("usuario.username")
+			value.bindToProperty("usuarioIngresado.username")
 		]
 
 		new Label(panelHeader) => [
@@ -79,14 +78,11 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 				val modelo = new GatoEncerradoAppModel => [
 					juego = new DummyData().crearJuegoDummy
 				]
-				
-				
 				this.modelObject.validaUsuario
-				
+				this.modelObject.validarClave
 				new GatoEncerradoWindow(this, modelo).open
+			]
 		]
-		]
-	
+
 	}
 }
-	
