@@ -57,7 +57,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 		new TextBox(panelHeader) => [
 			width = 50
-			value.bindToProperty("usuario.password")
+			value.bindToProperty("claveIngresada")
 		]
 
 		//Botones Cancel y Login
@@ -85,7 +85,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 				
 				new GatoEncerradoWindow(this, modelo).open
 		]
-	]
+		]
 	
 	}
 }

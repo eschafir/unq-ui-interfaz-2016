@@ -77,7 +77,7 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
         public void apply(final TextBox it) {
           it.setWidth(50);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-          _value.<Object>bindToProperty("usuario.password");
+          _value.<Object>bindToProperty("claveIngresada");
         }
       };
       ObjectExtensions.<TextBox>operator_doubleArrow(_textBox_1, _function_2);
