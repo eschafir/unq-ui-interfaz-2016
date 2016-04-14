@@ -3,7 +3,6 @@ package unq_ui.interfaz_gatoEncerrado_2016;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.layout.HorizontalLayout;
-import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -33,8 +32,6 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
     String _plus = (_nombre + ": agregar accion");
     this.setTitle(_plus);
     this.setMinHeight(200);
-    VerticalLayout _verticalLayout = new VerticalLayout();
-    mainPanel.setLayout(_verticalLayout);
     mainPanel.setWidth(3000);
     Label _label = new Label(mainPanel);
     _label.setText("Selecciona una acción a agregar");

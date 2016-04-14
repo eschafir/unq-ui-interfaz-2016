@@ -1,7 +1,6 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
@@ -21,8 +20,6 @@ class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrar
 		this.title = "Agarrar un elemento"
 		this.minHeight = 200
 
-		//No es necesario, el layout default es el vertical
-		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
 
 		new Label(mainPanel) => [

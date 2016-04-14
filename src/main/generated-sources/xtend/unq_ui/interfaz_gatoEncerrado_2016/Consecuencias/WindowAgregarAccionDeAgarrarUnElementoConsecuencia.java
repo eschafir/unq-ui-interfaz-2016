@@ -4,7 +4,6 @@ import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableValue;
 import org.uqbar.arena.layout.HorizontalLayout;
-import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
 import org.uqbar.arena.widgets.Label;
@@ -38,8 +37,6 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
   protected void createFormPanel(final Panel mainPanel) {
     this.setTitle("Agarrar un elemento");
     this.setMinHeight(200);
-    VerticalLayout _verticalLayout = new VerticalLayout();
-    mainPanel.setLayout(_verticalLayout);
     mainPanel.setWidth(3000);
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
@@ -73,7 +70,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.getModelObject();
-            _modelObject.agregarAcccionAgarrar();
+            _modelObject.agregarAccionAgarrar();
             WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.close();
           }
         };

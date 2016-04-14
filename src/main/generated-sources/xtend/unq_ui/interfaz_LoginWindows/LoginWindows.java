@@ -9,6 +9,7 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.PasswordField;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
@@ -25,41 +26,42 @@ import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 public class LoginWindows extends SimpleWindow<LoginAppModel> {
   public LoginWindows(final WindowOwner parent, final LoginAppModel model) {
     super(parent, model);
-    this.setTaskDescription("Bienvenido al Gato Encerrado 2.0");
+    this.setTaskDescription("Gato Encerrado 2.0");
   }
   
   protected void addActions(final Panel actionsPanel) {
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Acá hay gato encerrado - Inicio de Sesión");
+    this.setTitle("Inicio de Sesión");
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
         it.setText("Ingrese sus credenciales");
-        it.setFontSize(10);
+        it.setFontSize(15);
         it.setHeight(30);
       }
     };
     ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
-    final Panel panelPrincipal = new Panel(mainPanel);
-    ColumnLayout _columnLayout = new ColumnLayout(1);
-    panelPrincipal.setLayout(_columnLayout);
-    this.crearPanelLogin(panelPrincipal);
+    this.crearPanelLogin(mainPanel);
+    this.crearBotonera(mainPanel);
   }
   
-  public Button crearPanelLogin(final Panel owner) {
-    Button _xblockexpression = null;
+  /**
+   * Este método genera la interfaz del login.
+   */
+  public PasswordField crearPanelLogin(final Panel owner) {
+    PasswordField _xblockexpression = null;
     {
       final Panel panelHeader = new Panel(owner);
       ColumnLayout _columnLayout = new ColumnLayout(2);
       panelHeader.setLayout(_columnLayout);
       Label _label = new Label(panelHeader);
-      _label.setText("Username:");
+      _label.setText("Usuario:");
       TextBox _textBox = new TextBox(panelHeader);
       final Procedure1<TextBox> _function = new Procedure1<TextBox>() {
         public void apply(final TextBox it) {
-          it.setWidth(50);
+          it.setWidth(70);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           _value.<Object>bindToProperty("usuarioIngresado.username");
         }
@@ -68,38 +70,35 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
       Label _label_1 = new Label(panelHeader);
       final Procedure1<Label> _function_1 = new Procedure1<Label>() {
         public void apply(final Label it) {
-          it.setText("Password:");
+          it.setText("Contraseña:");
         }
       };
       ObjectExtensions.<Label>operator_doubleArrow(_label_1, _function_1);
-      TextBox _textBox_1 = new TextBox(panelHeader);
-      final Procedure1<TextBox> _function_2 = new Procedure1<TextBox>() {
-        public void apply(final TextBox it) {
-          it.setWidth(50);
+      PasswordField _passwordField = new PasswordField(panelHeader);
+      final Procedure1<PasswordField> _function_2 = new Procedure1<PasswordField>() {
+        public void apply(final PasswordField it) {
+          it.setWidth(70);
           ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
           _value.<Object>bindToProperty("claveIngresada");
         }
       };
-      ObjectExtensions.<TextBox>operator_doubleArrow(_textBox_1, _function_2);
+      _xblockexpression = ObjectExtensions.<PasswordField>operator_doubleArrow(_passwordField, _function_2);
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Este método genera los 2 botones "Login" y "Cancelar" de la pantalla de credenciales.
+   * Si se verifica el usuario correctamente, al pulsar sobre login se abre una pantalla principal de Gato Encerrado.
+   */
+  public Button crearBotonera(final Panel owner) {
+    Button _xblockexpression = null;
+    {
       final Panel botonera = new Panel(owner);
       HorizontalLayout _horizontalLayout = new HorizontalLayout();
       botonera.setLayout(_horizontalLayout);
       Button _button = new Button(botonera);
-      final Procedure1<Button> _function_3 = new Procedure1<Button>() {
-        public void apply(final Button it) {
-          it.setCaption("Cancel");
-          it.setWidth(65);
-          final Action _function = new Action() {
-            public void execute() {
-              LoginWindows.this.close();
-            }
-          };
-          it.onClick(_function);
-        }
-      };
-      ObjectExtensions.<Button>operator_doubleArrow(_button, _function_3);
-      Button _button_1 = new Button(botonera);
-      final Procedure1<Button> _function_4 = new Procedure1<Button>() {
+      final Procedure1<Button> _function = new Procedure1<Button>() {
         public void apply(final Button it) {
           it.setCaption("Login");
           it.setWidth(65);
@@ -126,7 +125,21 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
           it.onClick(_function);
         }
       };
-      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_4);
+      ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
+      Button _button_1 = new Button(botonera);
+      final Procedure1<Button> _function_1 = new Procedure1<Button>() {
+        public void apply(final Button it) {
+          it.setCaption("Cancelar");
+          it.setWidth(65);
+          final Action _function = new Action() {
+            public void execute() {
+              LoginWindows.this.close();
+            }
+          };
+          it.onClick(_function);
+        }
+      };
+      _xblockexpression = ObjectExtensions.<Button>operator_doubleArrow(_button_1, _function_1);
     }
     return _xblockexpression;
   }

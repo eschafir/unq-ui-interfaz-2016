@@ -10,7 +10,6 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel
 import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.TextBox
 
 class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
@@ -24,9 +23,6 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Agarrar un elemento"
 		this.minHeight = 200
-
-		//No es necesario, el layout default es el vertical
-		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
 
 		new Label(mainPanel) => [
@@ -45,7 +41,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 			height = 30
 			width = 150
 			onClick [|
-				this.modelObject.agregarAcccionAgarrar
+				this.modelObject.agregarAccionAgarrar
 				this.close
 			]
 		]

@@ -30,7 +30,7 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Agregar acción de Usar un elemento");
+    this.setTitle("Usar un elemento");
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
@@ -50,9 +50,14 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
         PropertyAdapter _propertyAdapter = new PropertyAdapter(Item.class, "nombre");
         _bindToProperty.setAdapter(_propertyAdapter);
         Label _label = new Label(mainPanel);
-        _label.setText("Cree la acción a realizar");
+        final Procedure1<Label> _function = new Procedure1<Label>() {
+          public void apply(final Label it) {
+            it.setHeight(20);
+          }
+        };
+        ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
         Button _button = new Button(mainPanel);
-        final Procedure1<Button> _function = new Procedure1<Button>() {
+        final Procedure1<Button> _function_1 = new Procedure1<Button>() {
           public void apply(final Button it) {
             it.setCaption("Definir acción consecuencia");
             it.setHeight(30);
@@ -74,7 +79,7 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
             it.onClick(_function);
           }
         };
-        ObjectExtensions.<Button>operator_doubleArrow(_button, _function);
+        ObjectExtensions.<Button>operator_doubleArrow(_button, _function_1);
       }
     };
     ObjectExtensions.<Selector<Object>>operator_doubleArrow(_selector, _function_1);

@@ -1,7 +1,6 @@
 package unq_ui.interfaz_gatoEncerrado_2016
 
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
@@ -24,7 +23,6 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 		this.title = this.modelObject.habitacionActual.nombre + ": agregar accion"
 		this.minHeight = 200
 
-		mainPanel.layout = new VerticalLayout
 		mainPanel.width = 3000
 
 		new Label(mainPanel).text = "Selecciona una acción a agregar"

@@ -21,7 +21,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Agregar acción de Usar un elemento"
+		this.title = "Usar un elemento"
 
 		new Label(mainPanel) => [
 			text = "Seleccione el elemento que puede ser usado"
@@ -32,7 +32,9 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			allowNull(false)
 			value.bindToProperty("itemSeleccionado")
 			(items.bindToProperty("itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
-			new Label(mainPanel).text = "Cree la acción a realizar"
+			new Label(mainPanel) => [
+				height = 20
+			]
 			new Button(mainPanel) => [
 				caption = "Definir acción consecuencia"
 				height = 30
