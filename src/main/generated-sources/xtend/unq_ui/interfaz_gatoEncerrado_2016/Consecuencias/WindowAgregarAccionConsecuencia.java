@@ -13,6 +13,7 @@ import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionConsecuenciaAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeAgarrarUnElementoConsecuencia;
 import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeIrAOtraHabitacionConsecuencia;
 
 @SuppressWarnings("all")
@@ -67,6 +68,14 @@ public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionC
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionConsecuenciaAppModel _modelObject = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionConsecuenciaAppModel _modelObject_1 = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Habitacion _habitacion = _modelObject_1.getHabitacion();
+            AgregarAccionConsecuenciaAppModel _modelObject_2 = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Item _item = _modelObject_2.getItem();
+            WindowAgregarAccionDeAgarrarUnElementoConsecuencia _windowAgregarAccionDeAgarrarUnElementoConsecuencia = new WindowAgregarAccionDeAgarrarUnElementoConsecuencia(WindowAgregarAccionConsecuencia.this, _laberinto, _habitacion, _item);
+            _windowAgregarAccionDeAgarrarUnElementoConsecuencia.open();
           }
         };
         it.onClick(_function);

@@ -45,8 +45,8 @@ class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecue
 			height = 30
 			width = 150
 			onClick [|
-				//new WindowAgregarAccionDeAgarrarElementoConsecuencia(this, this.modelObject.habitacion,
-					//this.modelObject.item).open
+				new WindowAgregarAccionDeAgarrarUnElementoConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion,
+					this.modelObject.item).open
 			]
 		]
 
