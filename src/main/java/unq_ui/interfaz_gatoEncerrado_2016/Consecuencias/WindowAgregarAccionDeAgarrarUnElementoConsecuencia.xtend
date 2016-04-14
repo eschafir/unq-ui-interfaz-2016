@@ -8,9 +8,10 @@ import unq_ciu.gatoEncerrado.Item
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Selector
-import org.uqbar.arena.bindings.PropertyAdapter
 import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.layout.VerticalLayout
+import org.uqbar.arena.widgets.TextBox
 
 class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
 
@@ -21,14 +22,19 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Consecuencia - Agarrar un elemento"
+		this.title = "Agarrar un elemento"
 		this.minHeight = 200
 
+		//No es necesario, el layout default es el vertical
+		mainPanel.layout = new VerticalLayout
+		mainPanel.width = 3000
 
-		new Selector<Habitacion>(mainPanel) => [
-			allowNull(false)
-			value.bindToProperty("habitacionSeleccionada")
-			(items.bindToProperty("habitacionesDisponibles")).adapter = new PropertyAdapter(Habitacion, "nombre")
+		new Label(mainPanel) => [
+			text = "Indicar el item que se puede agarrar en: " + this.modelObject.habitacion.nombre + "."
+		]
+
+		new TextBox(mainPanel) => [
+			value.bindToProperty("item.nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)
@@ -36,14 +42,18 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 
 		new Button(accionesPanel) => [
 			caption = "Aceptar"
+			height = 30
+			width = 150
 			onClick [|
-				this.modelObject.agregarAcccionAgarrar()
+				this.modelObject.agregarAcccionAgarrar
 				this.close
 			]
 		]
-		
+
 		new Button(accionesPanel) => [
 			caption = "Cancelar"
+			height = 30
+			width = 150
 			onClick [|this.close]
 		]
 	}
