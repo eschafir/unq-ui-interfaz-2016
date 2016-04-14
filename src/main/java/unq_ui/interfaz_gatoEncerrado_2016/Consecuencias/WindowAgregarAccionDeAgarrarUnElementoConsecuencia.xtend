@@ -17,7 +17,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 
 	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item) {
 		super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab))
-		this.taskDescription = "Consecuencia de agarrar " + this.modelObject.itemUtilizado.nombre + " en " +
+		this.taskDescription = "Consecuencia de usar " + this.modelObject.itemUtilizado.nombre + " en " +
 			this.modelObject.habitacion.nombre
 	}
 
@@ -34,7 +34,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 		]
 
 		new TextBox(mainPanel) => [
-			value.bindToProperty("item.nombre")
+			value.bindToProperty("itemUtilizado.nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)

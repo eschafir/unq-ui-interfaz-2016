@@ -26,7 +26,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
     AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
     Item _itemUtilizado = _modelObject.getItemUtilizado();
     String _nombre = _itemUtilizado.getNombre();
-    String _plus = ("Consecuencia de agarrar " + _nombre);
+    String _plus = ("Consecuencia de usar " + _nombre);
     String _plus_1 = (_plus + " en ");
     AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject_1 = this.getModelObject();
     Habitacion _habitacion = _modelObject_1.getHabitacion();
@@ -57,7 +57,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
     final Procedure1<TextBox> _function_1 = new Procedure1<TextBox>() {
       public void apply(final TextBox it) {
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-        _value.<Object>bindToProperty("item.nombre");
+        _value.<Object>bindToProperty("itemUtilizado.nombre");
       }
     };
     ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function_1);
