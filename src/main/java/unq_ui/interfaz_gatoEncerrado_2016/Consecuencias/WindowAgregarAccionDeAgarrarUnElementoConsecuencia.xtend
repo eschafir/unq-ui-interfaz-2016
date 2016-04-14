@@ -15,7 +15,7 @@ import org.uqbar.arena.widgets.TextBox
 class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
 
 	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item) {
-		super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab))
+		super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab, item))
 		this.taskDescription = "Consecuencia de usar " + this.modelObject.itemUtilizado.nombre + " en " +
 			this.modelObject.habitacion.nombre
 	}
