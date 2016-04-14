@@ -4,7 +4,6 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
-import java.awt.Color
 import unq_ciu.gatoEncerrado.AppModel.LoginAppModel
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.TextBox
@@ -18,7 +17,8 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 	new(WindowOwner parent, LoginAppModel model) {
 		super(parent, model)
-		this.taskDescription = "Bienvenido al Gato Encerrado 3.0"
+		this.taskDescription = "Bienvenido al Gato Encerrado 2.0"
+
 	}
 
 	override protected addActions(Panel actionsPanel) {}
@@ -28,9 +28,8 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 		new Label(mainPanel) => [
 			text = "Ingrese sus credenciales"
-			fontSize = 12
+			fontSize = 10
 			height = 30
-			foreground = Color.GRAY
 		]
 
 		val panelPrincipal = new Panel(mainPanel)

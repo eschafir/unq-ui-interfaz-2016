@@ -7,14 +7,14 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import unq_ciu.gatoEncerrado.Habitacion
 import org.uqbar.arena.widgets.TextBox
-import unq_ciu.gatoEncerrado.Item
-import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeAgarrarUnElementoAppModel
+import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeAgarrarElementoAppModel
 
-class WindowAgregarAccionDeAgarrarUnElemento extends Dialog<AgregarAccionDeAgarrarUnElementoAppModel> {
+class WindowAgregarAccionDeAgarrarElemento extends Dialog<AgregarAccionDeAgarrarElementoAppModel> {
 
-	new(WindowOwner owner, Item item) {
-		super(owner, new AgregarAccionDeAgarrarUnElementoAppModel(item))
+	new(WindowOwner owner, Habitacion hab) {
+		super(owner, new AgregarAccionDeAgarrarElementoAppModel(hab))
 	}
 
 	override protected createFormPanel(Panel mainPanel) {

@@ -10,8 +10,6 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
-import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeAgarrarUnElementoConsecuencia
-import unq_ciu.gatoEncerrado.Item
 
 class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
@@ -20,7 +18,6 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 	}
 
 	override protected addActions(Panel actionsPanel) {
-		//No utilizamos este template.
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
@@ -50,8 +47,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeAgarrarUnElementoConsecuencia(this, this.modelObject.laberinto,
-					this.modelObject.habitacionActual, new Item(""))
+				new WindowAgregarAccionDeAgarrarElemento(this, this.modelObject.habitacionActual).open
 			]
 		]
 

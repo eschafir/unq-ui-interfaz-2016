@@ -1,6 +1,5 @@
 package unq_ui.interfaz_LoginWindows;
 
-import java.awt.Color;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.arena.bindings.ObservableValue;
@@ -26,7 +25,7 @@ import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 public class LoginWindows extends SimpleWindow<LoginAppModel> {
   public LoginWindows(final WindowOwner parent, final LoginAppModel model) {
     super(parent, model);
-    this.setTaskDescription("Bienvenido al Gato Encerrado 3.0");
+    this.setTaskDescription("Bienvenido al Gato Encerrado 2.0");
   }
   
   protected void addActions(final Panel actionsPanel) {
@@ -38,9 +37,8 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
         it.setText("Ingrese sus credenciales");
-        it.setFontSize(12);
+        it.setFontSize(10);
         it.setHeight(30);
-        it.setForeground(Color.GRAY);
       }
     };
     ObjectExtensions.<Label>operator_doubleArrow(_label, _function);
