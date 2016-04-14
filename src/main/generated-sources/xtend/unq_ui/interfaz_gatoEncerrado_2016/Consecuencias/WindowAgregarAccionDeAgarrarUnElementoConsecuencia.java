@@ -16,21 +16,21 @@ import org.uqbar.lacar.ui.model.Action;
 import org.uqbar.lacar.ui.model.ControlBuilder;
 import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
-import unq_ciu.gatoEncerrado.Consecuencias.WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel;
+import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
 
 @SuppressWarnings("all")
-public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
+public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
   public WindowAgregarAccionDeAgarrarUnElementoConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item) {
-    super(owner, new WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(lab, hab, item));
-    WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
+    super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(lab, hab, item));
+    AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
     Item _item = _modelObject.getItem();
     String _nombre = _item.getNombre();
     String _plus = ("Consecuencia de agarrar " + _nombre);
     String _plus_1 = (_plus + " en ");
-    WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject_1 = this.getModelObject();
+    AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject_1 = this.getModelObject();
     Habitacion _habitacion = _modelObject_1.getHabitacion();
     String _nombre_1 = _habitacion.getNombre();
     String _plus_2 = (_plus_1 + _nombre_1);
@@ -62,7 +62,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<W
         it.setCaption("Aceptar");
         final Action _function = new Action() {
           public void execute() {
-            WindowAgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.getModelObject();
+            AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.getModelObject();
             _modelObject.agregarConsecuencia();
             WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.close();
           }

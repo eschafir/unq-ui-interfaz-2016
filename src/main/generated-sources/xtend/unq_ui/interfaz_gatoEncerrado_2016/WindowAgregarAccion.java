@@ -12,8 +12,9 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
+import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
-import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeAgarrarElemento;
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeAgarrarUnElementoConsecuencia;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeIrAOtraHabitacion;
 import unq_ui.interfaz_gatoEncerrado_2016.WindowAgregarAccionDeUsarElemento;
 
@@ -70,9 +71,11 @@ public class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionAppModel _modelObject = WindowAgregarAccion.this.getModelObject();
-            Habitacion _habitacionActual = _modelObject.getHabitacionActual();
-            WindowAgregarAccionDeAgarrarElemento _windowAgregarAccionDeAgarrarElemento = new WindowAgregarAccionDeAgarrarElemento(WindowAgregarAccion.this, _habitacionActual);
-            _windowAgregarAccionDeAgarrarElemento.open();
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionAppModel _modelObject_1 = WindowAgregarAccion.this.getModelObject();
+            Habitacion _habitacionActual = _modelObject_1.getHabitacionActual();
+            Item _item = new Item("");
+            new WindowAgregarAccionDeAgarrarUnElementoConsecuencia(WindowAgregarAccion.this, _laberinto, _habitacionActual, _item);
           }
         };
         it.onClick(_function);
