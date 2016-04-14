@@ -34,7 +34,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			(items.bindToProperty("itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
 			new Label(mainPanel).text = "Cree la acción a realizar"
 			new Button(mainPanel) => [
-				caption = "Agregar acción"
+				caption = "Definir acción consecuencia"
 				height = 30
 				width = 40
 				onClick [|

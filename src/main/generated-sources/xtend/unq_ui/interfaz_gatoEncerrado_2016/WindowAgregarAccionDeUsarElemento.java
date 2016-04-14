@@ -54,7 +54,7 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
         Button _button = new Button(mainPanel);
         final Procedure1<Button> _function = new Procedure1<Button>() {
           public void apply(final Button it) {
-            it.setCaption("Agregar acción");
+            it.setCaption("Definir acción consecuencia");
             it.setHeight(30);
             it.setWidth(40);
             final Action _function = new Action() {
