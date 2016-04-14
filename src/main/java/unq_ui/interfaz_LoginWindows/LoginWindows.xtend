@@ -18,7 +18,7 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 
 	new(WindowOwner parent, LoginAppModel model) {
 		super(parent, model)
-		this.taskDescription = "Bienvenido al Gato Encerrado 2.0"
+		this.taskDescription = "Bienvenido al Gato Encerrado 3.0"
 	}
 
 	override protected addActions(Panel actionsPanel) {}
@@ -27,8 +27,9 @@ class LoginWindows extends SimpleWindow<LoginAppModel> {
 		this.title = "Acá hay gato encerrado - Inicio de Sesión"
 
 		new Label(mainPanel) => [
-			text = "Acá hay gato encerrado..."
-			fontSize = 20
+			text = "Ingrese sus credenciales"
+			fontSize = 12
+			height = 30
 			foreground = Color.GRAY
 		]
 

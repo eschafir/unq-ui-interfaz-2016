@@ -26,7 +26,7 @@ import unq_ui.interfaz_ventanaPrincipal.GatoEncerradoWindow;
 public class LoginWindows extends SimpleWindow<LoginAppModel> {
   public LoginWindows(final WindowOwner parent, final LoginAppModel model) {
     super(parent, model);
-    this.setTaskDescription("Bienvenido al Gato Encerrado 2.0");
+    this.setTaskDescription("Bienvenido al Gato Encerrado 3.0");
   }
   
   protected void addActions(final Panel actionsPanel) {
@@ -37,8 +37,9 @@ public class LoginWindows extends SimpleWindow<LoginAppModel> {
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
-        it.setText("Acá hay gato encerrado...");
-        it.setFontSize(20);
+        it.setText("Ingrese sus credenciales");
+        it.setFontSize(12);
+        it.setHeight(30);
         it.setForeground(Color.GRAY);
       }
     };
