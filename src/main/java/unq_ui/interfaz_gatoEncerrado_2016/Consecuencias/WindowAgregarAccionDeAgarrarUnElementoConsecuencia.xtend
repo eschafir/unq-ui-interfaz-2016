@@ -34,7 +34,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 		]
 
 		new TextBox(mainPanel) => [
-			value.bindToProperty("itemUtilizado.nombre")
+			value.bindToProperty("itemDisponibleComoConsecuencia.nombre")
 		]
 
 		val accionesPanel = new Panel(mainPanel)

@@ -57,7 +57,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
     final Procedure1<TextBox> _function_1 = new Procedure1<TextBox>() {
       public void apply(final TextBox it) {
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
-        _value.<Object>bindToProperty("itemUtilizado.nombre");
+        _value.<Object>bindToProperty("itemDisponibleComoConsecuencia.nombre");
       }
     };
     ObjectExtensions.<TextBox>operator_doubleArrow(_textBox, _function_1);
