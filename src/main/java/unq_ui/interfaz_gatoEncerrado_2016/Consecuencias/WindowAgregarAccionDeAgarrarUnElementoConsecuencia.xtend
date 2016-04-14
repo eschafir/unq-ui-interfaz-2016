@@ -15,8 +15,8 @@ import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionDeAgarrarUnElementoConse
 class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
 
 	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item) {
-		super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(lab, hab, item))
-		this.taskDescription = "Consecuencia de agarrar " + this.modelObject.item.nombre + " en " +
+		super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab))
+		this.taskDescription = "Consecuencia de agarrar " + this.modelObject.itemUtilizado.nombre + " en " +
 			this.modelObject.habitacion.nombre
 	}
 
@@ -37,7 +37,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 		new Button(accionesPanel) => [
 			caption = "Aceptar"
 			onClick [|
-				this.modelObject.agregarConsecuencia
+				this.modelObject.agregarAcccionAgarrar()
 				this.close
 			]
 		]

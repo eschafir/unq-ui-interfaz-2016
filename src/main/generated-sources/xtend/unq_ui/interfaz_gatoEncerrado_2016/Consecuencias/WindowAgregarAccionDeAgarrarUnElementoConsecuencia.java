@@ -24,10 +24,10 @@ import unq_ciu.gatoEncerrado.Laberinto;
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
   public WindowAgregarAccionDeAgarrarUnElementoConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item) {
-    super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(lab, hab, item));
+    super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab));
     AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
-    Item _item = _modelObject.getItem();
-    String _nombre = _item.getNombre();
+    Item _itemUtilizado = _modelObject.getItemUtilizado();
+    String _nombre = _itemUtilizado.getNombre();
     String _plus = ("Consecuencia de agarrar " + _nombre);
     String _plus_1 = (_plus + " en ");
     AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject_1 = this.getModelObject();
@@ -63,7 +63,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.getModelObject();
-            _modelObject.agregarConsecuencia();
+            _modelObject.agregarAcccionAgarrar();
             WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.close();
           }
         };
