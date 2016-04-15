@@ -15,12 +15,11 @@ import org.uqbar.arena.layout.HorizontalLayout
 import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAccionDeUsarUnElementoConsecuenciaAppModel> {
-	
+
 	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item, Accion acc) {
-		super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, acc))
-		
+		super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, acc, lab))
+
 	}
-	
 
 	override protected createFormPanel(Panel mainPanel) {
 		this.title = "Usar un elemento"
@@ -30,14 +29,13 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 			height = 30
 		]
 
-		//new Selector(mainPanel) => [
-			//allowNull(false)
-			//value.bindToProperty("itemUtilizado")
-			//(items.bindToProperty("itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
-			//new Label(mainPanel) => [
-			//	height = 20
-			//]
-			
+		new Selector(mainPanel) => [
+			allowNull(false)
+			value.bindToProperty("itemSeleccionado")
+			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
+			new Label(mainPanel) => [
+				height = 20
+			]
 			new Button(mainPanel) => [
 				caption = "Definir acción consecuencia"
 				height = 30
@@ -45,22 +43,22 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 				onClick [|
 					//this.modelObject.validarItem
 					this.modelObject.agregarAccionUsar
-		//new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion, this.modelObject.itemSeleccionado).open
+				//new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion, this.modelObject.itemSeleccionado).open
 				]
 			]
-		//]
-		
-		val accionPanel = new Panel(mainPanel)
-		accionPanel.layout = new HorizontalLayout
-		new Button(accionPanel) => [
-			caption = "Aceptar"
-			height = 30
-			width = 150
-			onClick [|
-				this.close
 			]
-		]
+			val accionPanel = new Panel(mainPanel)
+			accionPanel.layout = new HorizontalLayout
+			new Button(accionPanel) => [
+				caption = "Aceptar"
+				height = 30
+				width = 150
+				onClick [|
+					this.close
+				]
+			]
+
+		}
 
 	}
 	
-}
