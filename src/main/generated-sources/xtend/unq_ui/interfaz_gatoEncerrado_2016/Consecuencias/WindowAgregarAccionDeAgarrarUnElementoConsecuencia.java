@@ -21,7 +21,7 @@ import unq_ciu.gatoEncerrado.Laberinto;
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel> {
   public WindowAgregarAccionDeAgarrarUnElementoConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item) {
-    super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab));
+    super(owner, new AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel(hab, item));
     AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
     Item _itemUtilizado = _modelObject.getItemUtilizado();
     String _nombre = _itemUtilizado.getNombre();
