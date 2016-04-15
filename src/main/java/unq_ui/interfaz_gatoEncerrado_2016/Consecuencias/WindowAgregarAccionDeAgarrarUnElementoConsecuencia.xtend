@@ -21,7 +21,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Agarrar un elemento"
+		this.title = this.modelObject.itemUtilizado.nombre + " - Consecuencia: Agarrar elemento."
 		this.minHeight = 200
 		mainPanel.width = 3000
 

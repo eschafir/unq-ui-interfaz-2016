@@ -35,7 +35,11 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Agarrar un elemento");
+    AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
+    Item _itemUtilizado = _modelObject.getItemUtilizado();
+    String _nombre = _itemUtilizado.getNombre();
+    String _plus = (_nombre + " - Consecuencia: Agarrar elemento.");
+    this.setTitle(_plus);
     this.setMinHeight(200);
     mainPanel.setWidth(3000);
     Label _label = new Label(mainPanel);

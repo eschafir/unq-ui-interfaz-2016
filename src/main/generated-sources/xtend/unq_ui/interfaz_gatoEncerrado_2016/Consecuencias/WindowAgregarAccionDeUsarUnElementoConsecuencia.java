@@ -30,7 +30,11 @@ public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<Agre
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Usar un elemento");
+    AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject = this.getModelObject();
+    Item _itemUtilizado = _modelObject.getItemUtilizado();
+    String _nombre = _itemUtilizado.getNombre();
+    String _plus = (_nombre + " - Consecuencia: Usar otro elemento.");
+    this.setTitle(_plus);
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {
       public void apply(final Label it) {
@@ -46,7 +50,7 @@ public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<Agre
         ObservableValue<Control, ControlBuilder> _value = it.<ControlBuilder>value();
         _value.<Object>bindToProperty("itemSeleccionado");
         ObservableItems<Selector<Object>, Object, ListBuilder<Object>> _items = it.items();
-        Binding<Object, Selector<Object>, ListBuilder<Object>> _bindToProperty = _items.<Object>bindToProperty("laberinto.itemsDisponibles");
+        Binding<Object, Selector<Object>, ListBuilder<Object>> _bindToProperty = _items.<Object>bindToProperty("itemsDisponibles");
         PropertyAdapter _propertyAdapter = new PropertyAdapter(Item.class, "nombre");
         _bindToProperty.setAdapter(_propertyAdapter);
         Label _label = new Label(mainPanel);

@@ -39,7 +39,11 @@ public class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<A
   }
   
   protected void createFormPanel(final Panel mainPanel) {
-    this.setTitle("Consecuencia - Ir a otra habitación");
+    AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel _modelObject = this.getModelObject();
+    Item _item = _modelObject.getItem();
+    String _nombre = _item.getNombre();
+    String _plus = (_nombre + " - Consecuencia: Ir a otra habitacion");
+    this.setTitle(_plus);
     this.setMinHeight(200);
     Label _label = new Label(mainPanel);
     final Procedure1<Label> _function = new Procedure1<Label>() {

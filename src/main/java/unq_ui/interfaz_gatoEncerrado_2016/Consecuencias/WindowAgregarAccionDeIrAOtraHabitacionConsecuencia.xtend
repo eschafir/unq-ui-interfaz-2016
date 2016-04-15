@@ -22,7 +22,7 @@ class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<AgregarA
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Consecuencia - Ir a otra habitación"
+		this.title = this.modelObject.item.nombre + " - Consecuencia: Ir a otra habitacion"
 
 		this.minHeight = 200
 

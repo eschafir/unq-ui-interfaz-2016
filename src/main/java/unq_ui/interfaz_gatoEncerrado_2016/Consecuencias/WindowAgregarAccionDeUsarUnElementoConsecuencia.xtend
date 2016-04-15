@@ -22,7 +22,7 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
-		this.title = "Usar un elemento"
+		this.title = this.modelObject.itemUtilizado.nombre + " - Consecuencia: Usar otro elemento."
 
 		new Label(mainPanel) => [
 			text = "Seleccione el elemento que puede ser usado"
@@ -32,7 +32,7 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 		new Selector(mainPanel) => [
 			allowNull(false)
 			value.bindToProperty("itemSeleccionado")
-			(items.bindToProperty("laberinto.itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
+			(items.bindToProperty("itemsDisponibles")).adapter = new PropertyAdapter(Item, "nombre")
 			new Label(mainPanel) => [
 				height = 20
 			]
@@ -46,19 +46,18 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 				//new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion, this.modelObject.itemSeleccionado).open
 				]
 			]
+		]
+		val accionPanel = new Panel(mainPanel)
+		accionPanel.layout = new HorizontalLayout
+		new Button(accionPanel) => [
+			caption = "Aceptar"
+			height = 30
+			width = 150
+			onClick [|
+				this.close
 			]
-			val accionPanel = new Panel(mainPanel)
-			accionPanel.layout = new HorizontalLayout
-			new Button(accionPanel) => [
-				caption = "Aceptar"
-				height = 30
-				width = 150
-				onClick [|
-					this.close
-				]
-			]
-
-		}
+		]
 
 	}
-	
+
+}
