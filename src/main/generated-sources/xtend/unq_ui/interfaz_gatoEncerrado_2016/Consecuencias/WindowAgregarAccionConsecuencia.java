@@ -9,17 +9,19 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
+import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionConsecuenciaAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
 import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeAgarrarUnElementoConsecuencia;
 import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeIrAOtraHabitacionConsecuencia;
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeUsarUnElementoConsecuencia;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
-  public WindowAgregarAccionConsecuencia(final WindowOwner parent, final Laberinto lab, final Habitacion hab, final Item item) {
-    super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item));
+  public WindowAgregarAccionConsecuencia(final WindowOwner parent, final Laberinto lab, final Habitacion hab, final Item item, final Accion acc) {
+    super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item, acc));
   }
   
   protected void addActions(final Panel actionsPanel) {
@@ -90,6 +92,16 @@ public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionC
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionConsecuenciaAppModel _modelObject = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Laberinto _laberinto = _modelObject.getLaberinto();
+            AgregarAccionConsecuenciaAppModel _modelObject_1 = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Habitacion _habitacion = _modelObject_1.getHabitacion();
+            AgregarAccionConsecuenciaAppModel _modelObject_2 = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Item _item = _modelObject_2.getItem();
+            AgregarAccionConsecuenciaAppModel _modelObject_3 = WindowAgregarAccionConsecuencia.this.getModelObject();
+            Accion _accion = _modelObject_3.getAccion();
+            WindowAgregarAccionDeUsarUnElementoConsecuencia _windowAgregarAccionDeUsarUnElementoConsecuencia = new WindowAgregarAccionDeUsarUnElementoConsecuencia(WindowAgregarAccionConsecuencia.this, _laberinto, _habitacion, _item, _accion);
+            _windowAgregarAccionDeUsarUnElementoConsecuencia.open();
           }
         };
         it.onClick(_function);

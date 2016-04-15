@@ -70,7 +70,7 @@ public class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<A
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionDeAgarrarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.getModelObject();
-            _modelObject.agregarAccionAgarrar();
+            _modelObject.agregarAccionUsar();
             WindowAgregarAccionDeAgarrarUnElementoConsecuencia.this.close();
           }
         };

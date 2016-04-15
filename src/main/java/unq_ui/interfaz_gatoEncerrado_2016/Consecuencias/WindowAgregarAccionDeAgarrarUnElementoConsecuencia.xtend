@@ -41,7 +41,7 @@ class WindowAgregarAccionDeAgarrarUnElementoConsecuencia extends Dialog<AgregarA
 			height = 30
 			width = 150
 			onClick [|
-				this.modelObject.agregarAccionAgarrar
+				this.modelObject.agregarAccionUsar
 				this.close
 			]
 		]

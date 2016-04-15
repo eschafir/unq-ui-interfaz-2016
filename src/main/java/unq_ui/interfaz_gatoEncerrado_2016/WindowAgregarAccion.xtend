@@ -9,11 +9,12 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
+import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 
-	new(WindowOwner parent, Laberinto lab, Habitacion model) {
-		super(parent, new AgregarAccionAppModel(lab, model))
+	new(WindowOwner parent, Laberinto lab, Habitacion model, Accion acc) {
+		super(parent, new AgregarAccionAppModel(lab, model, acc))
 	}
 
 	override protected addActions(Panel actionsPanel) {
@@ -55,7 +56,7 @@ class WindowAgregarAccion extends SimpleWindow<AgregarAccionAppModel> {
 			width = 150
 			onClick [|
 				new WindowAgregarAccionDeUsarElemento(this, this.modelObject.laberinto,
-					this.modelObject.habitacionActual).open
+					this.modelObject.habitacionActual, this.modelObject.accion).open
 			]
 		]
 

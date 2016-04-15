@@ -17,6 +17,7 @@ import org.uqbar.lacar.ui.model.Action;
 import org.uqbar.lacar.ui.model.ControlBuilder;
 import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
+import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.AppModel.AgregarAccionDeUsarElementoAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -25,8 +26,8 @@ import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConse
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
-  public WindowAgregarAccionDeUsarElemento(final WindowOwner owner, final Laberinto lab, final Habitacion hab) {
-    super(owner, new AgregarAccionDeUsarElementoAppModel(lab, hab));
+  public WindowAgregarAccionDeUsarElemento(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Accion acc) {
+    super(owner, new AgregarAccionDeUsarElementoAppModel(lab, hab, acc));
   }
   
   protected void createFormPanel(final Panel mainPanel) {
@@ -72,7 +73,9 @@ public class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsa
                 Habitacion _habitacion = _modelObject_2.getHabitacion();
                 AgregarAccionDeUsarElementoAppModel _modelObject_3 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
                 Item _itemSeleccionado = _modelObject_3.getItemSeleccionado();
-                WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion, _itemSeleccionado);
+                AgregarAccionDeUsarElementoAppModel _modelObject_4 = WindowAgregarAccionDeUsarElemento.this.getModelObject();
+                Accion _accion = _modelObject_4.getAccion();
+                WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarElemento.this, _laberinto, _habitacion, _itemSeleccionado, _accion);
                 _windowAgregarAccionConsecuencia.open();
               }
             };

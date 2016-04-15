@@ -13,11 +13,12 @@ import unq_ciu.gatoEncerrado.Habitacion
 import unq_ciu.gatoEncerrado.Laberinto
 import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConsecuencia
 import unq_ciu.gatoEncerrado.Item
+import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElementoAppModel> {
 
-	new(WindowOwner owner, Laberinto lab, Habitacion hab) {
-		super(owner, new AgregarAccionDeUsarElementoAppModel(lab, hab))
+	new(WindowOwner owner, Laberinto lab, Habitacion hab, Accion acc) {
+		super(owner, new AgregarAccionDeUsarElementoAppModel(lab, hab, acc))
 	}
 
 	override protected createFormPanel(Panel mainPanel) {
@@ -35,6 +36,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 			new Label(mainPanel) => [
 				height = 20
 			]
+			
 			new Button(mainPanel) => [
 				caption = "Definir acción consecuencia"
 				height = 30
@@ -42,7 +44,7 @@ class WindowAgregarAccionDeUsarElemento extends Dialog<AgregarAccionDeUsarElemen
 				onClick [|
 					this.modelObject.validarItem
 					new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion,
-						this.modelObject.itemSeleccionado).open
+						this.modelObject.itemSeleccionado, this.modelObject.accion).open
 				]
 			]
 		]

@@ -316,7 +316,9 @@ public class GatoEncerradoWindow extends SimpleWindow<GatoEncerradoAppModel> {
               Laberinto _laberintoSeleccionado = _modelObject_1.getLaberintoSeleccionado();
               GatoEncerradoAppModel _modelObject_2 = GatoEncerradoWindow.this.getModelObject();
               Habitacion _habitacionSeleccionada = _modelObject_2.getHabitacionSeleccionada();
-              WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(GatoEncerradoWindow.this, _laberintoSeleccionado, _habitacionSeleccionada);
+              GatoEncerradoAppModel _modelObject_3 = GatoEncerradoWindow.this.getModelObject();
+              Accion _accionSeleccionada = _modelObject_3.getAccionSeleccionada();
+              WindowAgregarAccion _windowAgregarAccion = new WindowAgregarAccion(GatoEncerradoWindow.this, _laberintoSeleccionado, _habitacionSeleccionada, _accionSeleccionada);
               _windowAgregarAccion.open();
             }
           };
