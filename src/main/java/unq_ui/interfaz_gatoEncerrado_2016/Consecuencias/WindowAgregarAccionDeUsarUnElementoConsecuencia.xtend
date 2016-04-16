@@ -16,8 +16,8 @@ import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAccionDeUsarUnElementoConsecuenciaAppModel> {
 
-	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item, Accion acc) {
-		super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, acc, lab))
+	new(WindowOwner owner, Laberinto lab, Habitacion hab, Item item) {
+		super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, lab))
 
 	}
 
@@ -42,9 +42,9 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 				width = 40
 				onClick [|
 					//this.modelObject.validarItem
-					this.modelObject.agregarAccionUsar
-				new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, 
-					this.modelObject.habitacion, this.modelObject.itemSeleccionado, this.modelObject.accionConsecuencia).open
+					new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto,
+						this.modelObject.habitacion, this.modelObject.itemSeleccionado,
+						this.modelObject.accionConsecuencia).open
 				]
 			]
 		]
@@ -55,10 +55,9 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 			height = 30
 			width = 150
 			onClick [|
+				this.modelObject.agregarAccionUsar
 				this.close
 			]
 		]
-
 	}
-
 }

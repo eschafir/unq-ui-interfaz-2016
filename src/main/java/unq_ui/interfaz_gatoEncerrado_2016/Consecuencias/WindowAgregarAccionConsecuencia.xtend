@@ -15,7 +15,7 @@ import unq_ciu.gatoEncerrado.Accion
 class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
 
 	new(WindowOwner parent, Laberinto lab, Habitacion hab, Item item, Accion acc) {
-		super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item, acc))
+		super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item))
 	}
 
 	override protected addActions(Panel actionsPanel) {
@@ -56,9 +56,8 @@ class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecue
 			height = 30
 			width = 150
 			onClick [|
-				new WindowAgregarAccionDeUsarUnElementoConsecuencia(this, this.modelObject.laberinto, 
-					this.modelObject.habitacion, this.modelObject.item, this.modelObject.accion).open
-					
+				new WindowAgregarAccionDeUsarUnElementoConsecuencia(this, this.modelObject.laberinto,
+					this.modelObject.habitacion, this.modelObject.item).open
 			]
 		]
 

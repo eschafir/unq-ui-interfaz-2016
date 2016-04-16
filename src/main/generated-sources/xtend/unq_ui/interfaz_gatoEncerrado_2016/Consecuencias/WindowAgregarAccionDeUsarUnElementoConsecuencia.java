@@ -26,8 +26,8 @@ import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConse
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAccionDeUsarUnElementoConsecuenciaAppModel> {
-  public WindowAgregarAccionDeUsarUnElementoConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item, final Accion acc) {
-    super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, acc, lab));
+  public WindowAgregarAccionDeUsarUnElementoConsecuencia(final WindowOwner owner, final Laberinto lab, final Habitacion hab, final Item item) {
+    super(owner, new AgregarAccionDeUsarUnElementoConsecuenciaAppModel(hab, item, lab));
   }
   
   protected void createFormPanel(final Panel mainPanel) {
@@ -70,15 +70,13 @@ public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<Agre
             final Action _function = new Action() {
               public void execute() {
                 AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
-                _modelObject.agregarAccionUsar();
+                Laberinto _laberinto = _modelObject.getLaberinto();
                 AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_1 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
-                Laberinto _laberinto = _modelObject_1.getLaberinto();
+                Habitacion _habitacion = _modelObject_1.getHabitacion();
                 AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_2 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
-                Habitacion _habitacion = _modelObject_2.getHabitacion();
+                Item _itemSeleccionado = _modelObject_2.getItemSeleccionado();
                 AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_3 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
-                Item _itemSeleccionado = _modelObject_3.getItemSeleccionado();
-                AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_4 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
-                Accion _accionConsecuencia = _modelObject_4.getAccionConsecuencia();
+                Accion _accionConsecuencia = _modelObject_3.getAccionConsecuencia();
                 WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarUnElementoConsecuencia.this, _laberinto, _habitacion, _itemSeleccionado, _accionConsecuencia);
                 _windowAgregarAccionConsecuencia.open();
               }
@@ -101,6 +99,8 @@ public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<Agre
         it.setWidth(150);
         final Action _function = new Action() {
           public void execute() {
+            AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
+            _modelObject.agregarAccionUsar();
             WindowAgregarAccionDeUsarUnElementoConsecuencia.this.close();
           }
         };

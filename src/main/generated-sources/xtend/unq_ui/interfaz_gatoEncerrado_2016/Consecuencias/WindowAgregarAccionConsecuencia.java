@@ -21,7 +21,7 @@ import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeUsa
 @SuppressWarnings("all")
 public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
   public WindowAgregarAccionConsecuencia(final WindowOwner parent, final Laberinto lab, final Habitacion hab, final Item item, final Accion acc) {
-    super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item, acc));
+    super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item));
   }
   
   protected void addActions(final Panel actionsPanel) {
@@ -98,9 +98,7 @@ public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionC
             Habitacion _habitacion = _modelObject_1.getHabitacion();
             AgregarAccionConsecuenciaAppModel _modelObject_2 = WindowAgregarAccionConsecuencia.this.getModelObject();
             Item _item = _modelObject_2.getItem();
-            AgregarAccionConsecuenciaAppModel _modelObject_3 = WindowAgregarAccionConsecuencia.this.getModelObject();
-            Accion _accion = _modelObject_3.getAccion();
-            WindowAgregarAccionDeUsarUnElementoConsecuencia _windowAgregarAccionDeUsarUnElementoConsecuencia = new WindowAgregarAccionDeUsarUnElementoConsecuencia(WindowAgregarAccionConsecuencia.this, _laberinto, _habitacion, _item, _accion);
+            WindowAgregarAccionDeUsarUnElementoConsecuencia _windowAgregarAccionDeUsarUnElementoConsecuencia = new WindowAgregarAccionDeUsarUnElementoConsecuencia(WindowAgregarAccionConsecuencia.this, _laberinto, _habitacion, _item);
             _windowAgregarAccionDeUsarUnElementoConsecuencia.open();
           }
         };
