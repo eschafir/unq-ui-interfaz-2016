@@ -22,6 +22,7 @@ import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionDeUsarUnElementoConsecue
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
 import unq_ciu.gatoEncerrado.Laberinto;
+import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionConsecuencia;
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAccionDeUsarUnElementoConsecuenciaAppModel> {
@@ -70,6 +71,16 @@ public class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<Agre
               public void execute() {
                 AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
                 _modelObject.agregarAccionUsar();
+                AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_1 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
+                Laberinto _laberinto = _modelObject_1.getLaberinto();
+                AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_2 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
+                Habitacion _habitacion = _modelObject_2.getHabitacion();
+                AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_3 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
+                Item _itemSeleccionado = _modelObject_3.getItemSeleccionado();
+                AgregarAccionDeUsarUnElementoConsecuenciaAppModel _modelObject_4 = WindowAgregarAccionDeUsarUnElementoConsecuencia.this.getModelObject();
+                Accion _accionConsecuencia = _modelObject_4.getAccionConsecuencia();
+                WindowAgregarAccionConsecuencia _windowAgregarAccionConsecuencia = new WindowAgregarAccionConsecuencia(WindowAgregarAccionDeUsarUnElementoConsecuencia.this, _laberinto, _habitacion, _itemSeleccionado, _accionConsecuencia);
+                _windowAgregarAccionConsecuencia.open();
               }
             };
             it.onClick(_function);

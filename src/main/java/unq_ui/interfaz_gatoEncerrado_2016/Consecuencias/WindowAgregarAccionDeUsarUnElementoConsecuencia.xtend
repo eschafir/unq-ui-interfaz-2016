@@ -43,7 +43,9 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 				onClick [|
 					//this.modelObject.validarItem
 					this.modelObject.agregarAccionUsar
-				//new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, this.modelObject.habitacion, this.modelObject.itemSeleccionado).open
+				new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto, 
+					this.modelObject.habitacion, this.modelObject.itemSeleccionado, this.modelObject.accionConsecuencia).open
+				//WindowOwner parent, Laberinto lab, Habitacion hab, Item item, Accion acc
 				]
 			]
 		]
