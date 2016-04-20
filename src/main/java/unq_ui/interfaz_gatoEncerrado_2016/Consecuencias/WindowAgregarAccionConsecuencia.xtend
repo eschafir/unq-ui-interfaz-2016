@@ -10,11 +10,10 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionConsecuenciaAppModel
-import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
 
-	new(WindowOwner parent, Laberinto lab, Habitacion hab, Item item, Accion acc) {
+	new(WindowOwner parent, Laberinto lab, Habitacion hab, Item item) {
 		super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item))
 	}
 

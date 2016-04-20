@@ -80,7 +80,7 @@ public class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<A
         final Action _function = new Action() {
           public void execute() {
             AgregarAccionDeIrAOtraHabitacionConsecuenciaAppModel _modelObject = WindowAgregarAccionDeIrAOtraHabitacionConsecuencia.this.getModelObject();
-            _modelObject.agregarConsecuencia();
+            _modelObject.agregarAccion();
             WindowAgregarAccionDeIrAOtraHabitacionConsecuencia.this.close();
           }
         };

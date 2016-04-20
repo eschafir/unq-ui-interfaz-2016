@@ -43,7 +43,7 @@ class WindowAgregarAccionDeIrAOtraHabitacionConsecuencia extends Dialog<AgregarA
 		new Button(accionesPanel) => [
 			caption = "Aceptar"
 			onClick [|
-				this.modelObject.agregarConsecuencia
+				this.modelObject.agregarAccion
 				this.close
 			]
 		]

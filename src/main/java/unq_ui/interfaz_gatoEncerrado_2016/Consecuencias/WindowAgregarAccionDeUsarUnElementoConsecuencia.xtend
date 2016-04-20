@@ -12,7 +12,6 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import unq_ciu.gatoEncerrado.Item
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
-import unq_ciu.gatoEncerrado.Accion
 
 class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAccionDeUsarUnElementoConsecuenciaAppModel> {
 
@@ -41,10 +40,9 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 				height = 30
 				width = 40
 				onClick [|
-					//this.modelObject.validarItem
+					this.modelObject.validarItem(this.modelObject.itemSeleccionado)
 					new WindowAgregarAccionConsecuencia(this, this.modelObject.laberinto,
-						this.modelObject.habitacion, this.modelObject.itemSeleccionado,
-						this.modelObject.accionConsecuencia).open
+						this.modelObject.habitacion, this.modelObject.itemSeleccionado).open
 				]
 			]
 		]
@@ -55,7 +53,7 @@ class WindowAgregarAccionDeUsarUnElementoConsecuencia extends Dialog<AgregarAcci
 			height = 30
 			width = 150
 			onClick [|
-				this.modelObject.agregarAccionUsar
+				this.modelObject.agregarAccion
 				this.close
 			]
 		]

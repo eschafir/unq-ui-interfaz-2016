@@ -9,7 +9,6 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.lacar.ui.model.Action;
-import unq_ciu.gatoEncerrado.Accion;
 import unq_ciu.gatoEncerrado.Consecuencias.AgregarAccionConsecuenciaAppModel;
 import unq_ciu.gatoEncerrado.Habitacion;
 import unq_ciu.gatoEncerrado.Item;
@@ -20,7 +19,7 @@ import unq_ui.interfaz_gatoEncerrado_2016.Consecuencias.WindowAgregarAccionDeUsa
 
 @SuppressWarnings("all")
 public class WindowAgregarAccionConsecuencia extends SimpleWindow<AgregarAccionConsecuenciaAppModel> {
-  public WindowAgregarAccionConsecuencia(final WindowOwner parent, final Laberinto lab, final Habitacion hab, final Item item, final Accion acc) {
+  public WindowAgregarAccionConsecuencia(final WindowOwner parent, final Laberinto lab, final Habitacion hab, final Item item) {
     super(parent, new AgregarAccionConsecuenciaAppModel(lab, hab, item));
   }
   
